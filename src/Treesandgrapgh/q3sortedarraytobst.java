@@ -37,11 +37,11 @@ public class q3sortedarraytobst {
 			return data;
 		}
 			
-		public static BNode sortarraytobst(int[] array, int start,int end){
+			public  BNode sortarraytobst(int[] array, int start,int end){
 				if(end < start)
 					return null;
-				int mid = (end - start)/2;
-				BNode node = new BNode([array[mid]);
+				int mid = start + (end - start)/2;
+				BNode node = new BNode(array[mid]);
 				node.right = sortarraytobst(array, mid + 1, end);
 				node.left = sortarraytobst(array, start, mid-1);
 				return node;			
@@ -49,7 +49,7 @@ public class q3sortedarraytobst {
 
 		public BNode arraybst(int[] array) {
 			return sortarraytobst(array, 0, array.length - 1);
-		}		
+		}				
 	}
 	public static void main(String[] args) {
 	}
