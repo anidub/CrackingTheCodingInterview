@@ -18,27 +18,26 @@ public class zigzagtree {
 	       printSpiral(n);
 	}
 	
-	public static void printSpiral(Node node) 
-	    {
+	public static ArrayList<ArrayList<Integer>> printSpiral(Node node) {
+		ArrayList<ArrayList<Integer>> result = new ArrayList<>();
 	        if (node == null) 
-	            return;   // NULL check
+	            return result;   // NULL check
 	 
 	        // Create two stacks to store alternate levels
 	        Stack<Node> s1 = new Stack<Node>();// For levels to be printed from right to left
 	        Stack<Node> s2 = new Stack<Node>();// For levels to be printed from left to right
+	        ArrayList<Integer> level;
 	 
 	        // Push first level to first stack 's1'
 	        s1.push(node);
 	 
 	        // Keep ptinting while any of the stacks has some nodes
-	        while (!s1.empty() || !s2.empty()) 
-	        {
-	            // Print nodes of current level from s1 and push nodes of
-	            // next level to s2
-	            while (!s1.empty()) 
-	            {
-	                Node temp = s1.peek();
-	                s1.pop();
+	        while (!s1.empty() || !s2.empty()){
+	            // Print nodes of current level from s1 and push nodes of next level to s2
+	        	level = new ArrayList<>();
+	            while (!s1.empty()){
+	                Node temp = s1.pop();
+	                level.add(temp.data);
 	                System.out.print(temp.data + " ");
 	 
 	                // Note that is right is pushed before left
@@ -46,15 +45,15 @@ public class zigzagtree {
 	                    s2.push(temp.right);
 	                 
 	                if (temp.left != null) 
-	                    s2.push(temp.left);
-	                 
+	                    s2.push(temp.left);	                 
 	            }
-	 
+	            if(level.size() != 0)
+	            	result.add(level);
+	            level = new ArrayList<>();	 
 	            // Print nodes of current level from s2 and push nodes of next level to s1
-	            while (!s2.empty()) 
-	            {
-	                Node temp = s2.peek();
-	                s2.pop();
+	            while (!s2.empty()){
+	                Node temp = s2.pop();
+	                level.add(temp.data);
 	                System.out.print(temp.data + " ");
 	 
 	                // Note that is left is pushed before right
@@ -63,6 +62,9 @@ public class zigzagtree {
 	                if (temp.right != null)
 	                    s1.push(temp.right);
 	            }
+	            if(level.size() != 0)
+	            	result.add(level);
 	        }
+	        return result;
 	    }
 }
