@@ -1,8 +1,5 @@
 package Treesandgrapgh;
 
-import situations.trails.Node;
-import situations.trails.TreeNode;
-
 public class lowestcommonancestor {
 //time complexity of the above solution is O(n)
 	static class Node {
@@ -147,35 +144,63 @@ public class lowestcommonancestor {
 		}
 	}
 	
-	//iterative //http://articles.leetcode.com/lowest-common-ancestor-of-a-binary-tree-part-ii
-	public static int getHeight(TreeNode p) {
-		  int height = 0;
-		  while (p != null) {
-		    height++;
-		    p = p.parent;
-		  }
-		  return height;
+	/*
+	 * use this for iterative
+	 * iterative//http://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-tree-set-2-using-parent-pointer/
+	 public N lc(N n1, N n2){
+		int d1 = getHeight(n1);
+		int d2 = getHeight(n2);
+		
+		if(d1 > d2){
+			int diff = d1 - d2;
+			while(diff != 0){
+				n2 = n2.parent;
+				diff--;
+			}
+		}else if(d2 > d1){
+			int diff = d2 - d1;
+			while(diff != 0){
+				n1 = n1.parent;
+			}
 		}
-		 
-		// As root->parent is NULL, we don't need to pass root in.
-		TreeNode LCA(TreeNode p, TreeNode q) {
-		  int h1 = getHeight(p);
-		  int h2 = getHeight(q);
-		  // swap both nodes in case p is deeper than q.
-		  if (h1 > h2) {
-		    swap(h1, h2);
-		    swap(p, q);
-		  }
-		  // invariant: h1 <= h2.
-		  int dh = h2 - h1;
-		  for (int h = 0; h < dh; h++)
-		    q = q.parent;
-		  while (p != null && q != null) {
-		    if (p == q) return p;
-		    p = p.parent;
-		    q = q.parent;
-		  }
-		  return null;  // p and q are not in the same tree
+		while(n1 != null || n2 != null){
+			if(n1 == n2)
+				return n1;
+			n1 = n1.parent;
+			n2 = n2.parent;
 		}
-
+		return null;
+	}
+	public int getHeight(N n1){
+		N cur = n1;
+		int height = 0;
+		while(cur != null){
+			height++;
+			cur = cur.parent;
+		}
+		return height;
+	}
+	protected class N{
+		int data;
+		N left,right,parent;
+		public N(int data){
+			this.data = data;
+			left =right=parent = null;
+		}
+		
+		public N insert(N root, int data){
+			if(root == null)
+				root = new N(data);
+			if(data < root.data){
+				root.left = insert(root.left, data);
+				root.left.parent = root;
+			}
+			else if(data > root.data){
+				root.right = insert(root.right, data);
+				root.right.parent = root;
+			}  
+			return root;
+		}
+	}*/
+	
 }
