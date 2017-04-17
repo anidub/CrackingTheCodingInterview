@@ -12,10 +12,8 @@ public class lowestcommonancestor {
 	}
 
 	public static class BinaryTree {
-
 		//Root of the Binary Tree
 		Node root;
-
 		Node findLCAUtil(boolean v1, boolean v2, int n1, int n2) {
 			return findLCAUtil(root, v1, v2, n1, n2);
 		}
@@ -24,13 +22,9 @@ public class lowestcommonancestor {
 	// v2 is set as true by this function if n2 is found
 	Node findLCAUtil(Node node, boolean v1, boolean v2, int n1, int n2) {
 			// Base case
-			if (node == null) {
-				return null;
-			}
-
-			// If either n1 or n2 matches with root's key, report the presence
-			// by setting v1 or v2 as true and return root (Note that if a key
-			// is ancestor of other, then the ancestor key becomes LCA)
+			if (node == null) 	return null;
+// If either n1 or n2 matches with root's key, report the presence by setting v1 or v2 as true and return root (Note that if a key
+// is ancestor of other, then the ancestor key becomes LCA)
 			if (node.data == n1) {
 				v1 = true;
 				return node;
@@ -59,13 +53,11 @@ public class lowestcommonancestor {
 			if (root == null) {
 				return false;
 			}
-
 			// If key is present at root, or in left subtree or right subtree,
 			// return true;
 			if (node.data == k || find(node.left, k) || find(node.right, k)) {
 				return true;
 			}
-
 			// Else return false
 			return false;
 		}
@@ -79,15 +71,12 @@ public class lowestcommonancestor {
 		Node findLCA(Node node, int n1, int n2) {
 			// Initialize n1 and n2 as not visited
 			boolean v1 = false, v2 = false;
-
 			// Find lca of n1 and n2 using the technique discussed above
 			Node lca = findLCAUtil(v1, v2, n1, n2);
-
 			// Return LCA only if both n1 and n2 are present in tree
 			if (v1 && v2 || v1 && find(lca, n2) || v2 && find(lca, n1)) {
 				return lca;
 			}
-
 			// Else return NULL
 			return null;
 		}
@@ -202,5 +191,23 @@ public class lowestcommonancestor {
 			return root;
 		}
 	}*/
-	
+
+	  /* IF BST !!!!!.http://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/
+	   * Function to find LCA of n1 and n2. The function assumes that both
+    n1 and n2 are present in BST */
+ Node lca(Node node, int n1, int n2) 
+ {
+     if (node == null)
+         return null;
+
+     // If both n1 and n2 are smaller than root, then LCA lies in left
+     if (node.data > n1 && node.data > n2)
+         return lca(node.left, n1, n2);
+
+     // If both n1 and n2 are greater than root, then LCA lies in right
+     if (node.data < n1 && node.data < n2) 
+         return lca(node.right, n1, n2);
+
+     return node;
+ }	
 }
