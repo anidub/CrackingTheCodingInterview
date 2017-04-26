@@ -62,7 +62,8 @@ public class lowestcommonancestor {
 			return false;
 		}
 
-		// This function returns LCA of n1 and n2 only if both n1 and n2 are present
+		// This function returns LCA of n1 and n2 for all cases whether both the keys are present or either one is present
+		//if either one is present...returns null
 		// in tree, otherwise returns NULL;
 		Node findLCA(int n1, int n2) {
 			return findLCA(root, n1, n2);
@@ -195,8 +196,7 @@ public class lowestcommonancestor {
 	  /* IF BST !!!!!.http://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/
 	   * Function to find LCA of n1 and n2. The function assumes that both
     n1 and n2 are present in BST */
- Node lca(Node node, int n1, int n2) 
- {
+ Node lca(Node node, int n1, int n2) {
      if (node == null)
          return null;
 
@@ -209,5 +209,5 @@ public class lowestcommonancestor {
          return lca(node.right, n1, n2);
 
      return node;
- }	
-}
+ 	}	 
+ }
