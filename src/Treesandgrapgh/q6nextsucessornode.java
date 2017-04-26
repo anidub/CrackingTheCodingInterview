@@ -84,4 +84,27 @@ public class q6nextsucessornode {
 		  	tree.makeCustomTree3();
 	        System.out.println(tree.getInorderSuccessor(tree.test));
 	}
+	//http://www.programcreek.com/2014/05/leetcode-inorder-successor-in-bst-java/
+	//Time is O(log(n)) and space is O(1).
+	public static Node getInorder(Node root, Node find){
+		if(root == null) return null;
+		Node current = root;
+		Node next = null; // this node will work like parent node
+		while(current != null && current.data != find.data){
+			if(find.data < current.data){
+				next = current;
+				current = current.left;
+			}else{
+				current = current.right;
+			}			
+		}
+		
+		if(current == null) return null;
+		if(current.right == null) return current;
+		current = current.right;
+		while(current.left != null){
+			current = current.left;
+		}
+		return current;
+	}
 }
