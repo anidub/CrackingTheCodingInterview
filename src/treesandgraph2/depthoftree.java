@@ -32,9 +32,13 @@ public class depthoftree {
 			}
 		}
 	}
+	
+	public static int heightRecursive(Node root){
+		int left = heightRecursive(root.left);
+		int right = heightRecursive(root.right);
+		return Math.max(left, right) + 1;
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
 	}
-
 }
