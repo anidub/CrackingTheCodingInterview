@@ -1,4 +1,4 @@
-	package treesandgraph2;
+package treesandgraph2;
 
 public class closestleaftoagivennode {
 //Given a Binary Tree and a node x in it, 
@@ -8,58 +8,49 @@ public class closestleaftoagivennode {
 	//Time Complexity of this above solution is O(n) as it does at most two traversals of given Binary Tree.
 	//Result stores the leaf node
 	
-	public static void findLeafDown(Node root, int lev, int minDistance,Node result){
+	public static void findLeafDown(Node root, int lev,  Distance minDistance){
 		if(root == null) return;
 		if(root.left == null && root.right == null){
-			if(lev < minDistance){
-				minDistance = lev;
+			if(lev < minDistance.minDis){
+				res = root.data;
+				minDistance.minDis = lev;
 				return;
 			}
 		}
-		
-		Node result1 = null, result2 = null;
-		int ld = Integer.MAX_VALUE, rd = Integer.MAX_VALUE;
-		if(ld <= rd) {
-			if(ld < minDistance) {
-				minDistance = ld;
-				result = result1;
-			}
-		}
-		else {
-			if(rd < minDistance) {
-				minDistance = rd;
-				result = result2;
-			}
-		}
-		findLeafDown(root.left, lev + 1, minDistance,result);
-		findLeafDown(root.right, lev + 1, minDistance,result);
+		findLeafDown(root.left, lev + 1, minDistance);
+		findLeafDown(root.right, lev + 1, minDistance);
 	}
 	
-	public static int findThroughParent(Node root, Node x, int minDistance,Node result){
+	public static int findThroughParent(Node root, Node x, Distance minDistance){
 		if(root == null) return -1;
 		if(root == x) return 0;
 		
-		int l = findThroughParent(root.left,x,minDistance,result);
+		int l = findThroughParent(root.left,x,minDistance);
 		if(l != -1){
 			// Find closest leaf in right subtree
-			findLeafDown(root.right, l+2,minDistance,result);
+			findLeafDown(root.right, l+2,minDistance);
 			return l+1;
 		}
 		
-		int r = findThroughParent(root.right, x, minDistance,result);
+		int r = findThroughParent(root.right, x, minDistance);
 		if(r != -1){
-			findLeafDown(root.left, r+2, minDistance,result);
+			findLeafDown(root.left, r+2, minDistance);
 			return r+1;
 		}
-		return -1;
-			
+		return -1;			
 	}
 
-	public static 	int minimumDistance(Node root, Node x,Node result){
-		int minDistance = Integer.MAX_VALUE;
-		findLeafDown(x,0, minDistance,result);
-		findThroughParent(root, x, minDistance,result);
-		return minDistance;
+	private static class Distance {
+	    int minDis = Integer.MAX_VALUE;
+	}
+	static int res;
+	
+	public static int minimumDistance(Node root, Node x/*,Node result)*/){
+		  // Initialize result (minimum distance from a leaf)
+        Distance d = new Distance();  
+		findLeafDown(x,0, d);
+		findThroughParent(root, x, d);	
+		return d.minDis;
 	}
 		
 	
@@ -86,10 +77,7 @@ public class closestleaftoagivennode {
 	    root.right.right.right.right = new Node(8);
 	 
 	    Node x = root.right;
-	    
-	    Node result = null;
-	    System.out.println(minimumDistance(root, x,result));
-	
-	}
-
+	    System.out.println("Distance : " + minimumDistance(root, x));	 
+	    System.out.println("Leaf :" + res);	
+	}	
 }
