@@ -5,6 +5,14 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class detectcycleingraph {
+/*	It means exactly what it sounds like. In a directed graph, 
+	direction matters. i.e. edge 2->3 means that edge is directed.
+	There is only an edge from 2 to 3 and no edge from 3 to 2. T
+	herefore you can go from vertex 2 to vertex 3 but not from 3 to 2.
+	In undirected graph 2-3 means the edge has no direction, i.e.
+	2-3 means you can go both from 2 to 3 and 3 to 2.
+	Note that in the representation of your graph, if you are using an adjacency matrix,
+	directed 2->3 means adj[2][3]=true but adj[3][2]=false. In undirected it means adj[2][3]=adj[3][2]=true.*/	
 //Time Complexity of this method is same as time complexity of DFS traversal which is O(V+E).
 	public static void main(String[] args) {
 		graph graph = new graph(4);
@@ -22,8 +30,7 @@ public class detectcycleingraph {
 		int size = graph.adj.length;
 
 		boolean[] visited = new boolean[size];
-		//@recStack recursion stack, to check which all nodes are present 
-				//on the stack
+		//@recStack recursion stack, to check which all nodes are present on the stack
 		Set<Integer> recStack = new HashSet<Integer>();
 		
 		for(int i = 0; i < size; i++){
@@ -65,10 +72,12 @@ public class detectcycleingraph {
 	}
 
 //	Time Complexity: The program does a simple DFS Traversal of graph and graph is represented using adjacency list. So the time complexity is O(V+E)
+//http://www.geeksforgeeks.org/detect-cycle-undirected-graph/	
 	public boolean isCyclicUndirected(graph graph){
 		int size = graph.adj.length;
 		boolean[] visited = new boolean[size];
 		for(int i = 0; i < size; i++){
+			if (!visited[i])
 			if(isCyclicUndirectedUtil(graph,i,visited,-1)) 
 				return true;
 		}
@@ -88,8 +97,9 @@ public class detectcycleingraph {
 					if(isCyclicUndirectedUtil(graph,  n,visited,v))
 						return true;
 				}
-				// If an adjacent is visited and not parent of current
-	            // vertex, then there is a cycle.
+			/*	For every visited vertex ‘v’, if there is an adjacent ‘u’ such that u is 
+				already visited and u is not parent of v, then there is a cycle in graph. 
+				If we don’t find such an adjacent for any vertex, we say that there is no cycle. */
 				else if(n != parent)
 					return true;
 			}
