@@ -3,8 +3,8 @@ package treesandgraph2;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
-
+///https://www.careercup.com/question?id=5638785930887168
+// Though constrained by O(n), it operates at 2n time.
 public class N_aryZigZag {
 	
 	private static class Node {  
