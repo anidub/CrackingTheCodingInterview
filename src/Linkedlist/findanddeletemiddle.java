@@ -1,9 +1,10 @@
 package Linkedlist;
 
-import java.util.Hashtable;
-
 public class findanddeletemiddle {
-	 
+	/*
+	 * use fast.next && fast.next.next because of null pointer exception
+	 * because in next.next...if next = null ,you cannot of next of null
+	 */
 	public static void main(String[] args) {
 		Node n = new Node(1);
 		n.next = new Node(2);
@@ -27,7 +28,7 @@ public class findanddeletemiddle {
 		}
 	}
 	
-	public static Node delete (Node n){
+	public static Node delete(Node n){
 		Node temp = n;
 		Node slow = n;
 		Node fast = n;
@@ -39,7 +40,7 @@ public class findanddeletemiddle {
 		temp = n;
 		int middleposition = 1;
 		
-		while(fast.next != null){
+		while(fast.next != null && fast.next.next != null){//imp
 			fast = fast.next.next;
 			slow = slow.next;
 			middleposition++;
