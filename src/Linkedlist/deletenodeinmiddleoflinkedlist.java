@@ -1,7 +1,7 @@
 package Linkedlist;
 
 public class deletenodeinmiddleoflinkedlist {
-
+//This program can be used for deleting any node not just middle node
 	public static void main(String[] args) {
 		Node n = new Node(1);
 		n.next = new Node(22);
@@ -30,7 +30,6 @@ public class deletenodeinmiddleoflinkedlist {
 		Node New = n.next;
 		n.data = New.data;
 		n.next = New.next;
-		return true;
-		
+		return true;		
 	}
 }
