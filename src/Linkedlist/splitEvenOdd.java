@@ -26,22 +26,22 @@ public class splitEvenOdd {
 					even = eventail = h;
 				} else {
 					eventail.next = h;
-					eventail = h;
+					eventail = eventail.next;
 				}
 			} else {
 				if (odd == null) {
 					odd = oddtail = h;
 				} else {
 					oddtail.next = h;
-					oddtail = h;
+					oddtail = oddtail.next;
 				}
 			}
 			Node nextNode = h.next;
 			h.next = null;
 			h = nextNode;
 		}
-		Node e = even.next;
-		Node o = odd.next;
+		Node e = even;
+		Node o = odd;
 		while (e != null) {
 			System.out.print(e.data + " ");
 			e = e.next;
@@ -51,6 +51,5 @@ public class splitEvenOdd {
 			System.out.print(o.data + " ");
 			o = o.next;
 		}
-
 	}
 }
