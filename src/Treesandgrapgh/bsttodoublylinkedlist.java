@@ -41,10 +41,7 @@ public class bsttodoublylinkedlist {
             System.out.println("Data : " + root.data);
             root = root.right;
         }
-    }
- 
- 
- 
+    } 
     public static void main(String args[]){
  
         Node root = new Node(10);
@@ -65,10 +62,33 @@ public class bsttodoublylinkedlist {
  
         r.setLeft(rl);
  
-        printLL(btreeToList(root));
- 
+        printLL(btreetodll(root)); 
     }
-
-	
-
+    
+    //http://www.geeksforgeeks.org/convert-given-binary-tree-doubly-linked-list-set-3/
+    // O(n) 
+    // head --> Pointer to head node of created doubly linked list
+    Node head;
+      
+    // Initialize previously visited node as NULL. This is static so that the same value is accessible in all recursive calls
+    
+    static Node prev = null;
+    void BinaryTree2DoubleLinkedList(Node root) {
+        // Base case
+        if (root == null)   return;
+  
+        // Recursively convert left subtree
+        BinaryTree2DoubleLinkedList(root.left);
+  
+        // Now convert this node
+        if (prev == null) 
+            head = root;
+        else {
+            root.left = prev;
+            prev.right = root;
+        }
+        prev = root;  
+        // Finally convert right subtree
+        BinaryTree2DoubleLinkedList(root.right);
+    }
 }
