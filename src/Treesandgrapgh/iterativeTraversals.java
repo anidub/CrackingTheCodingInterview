@@ -6,10 +6,6 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
-import javax.swing.tree.TreeNode;
-
-import situations.Node;
-
 public class iterativeTraversals {
 	
 	private Node root;
@@ -20,11 +16,11 @@ public class iterativeTraversals {
 	     level.add(root);
 	     while(!level.isEmpty()){
 	         Node node = level.poll();
-	         System.out.print(node.item + " ");
-	         if(node.leftChild!= null)
-	         level.add(node.leftChild);
-	         if(node.rightChild!= null)
-	         level.add(node.rightChild);
+	         System.out.print(node.data + " ");
+	         if(node.left!= null)
+	         level.add(node.left);
+	         if(node.right!= null)
+	         level.add(node.right);
 	     }
 	}
 
@@ -53,7 +49,7 @@ public class iterativeTraversals {
 	}
 
 		//inorder iterative
-/*	Create an empty stack s and Initialize current node as root
+/**	Create an empty stack s and Initialize current node as root
 	Push the current node to s and set currentNode = currentNode.left until currentNode is NULL
 	If currentNode is NULL and s is not empty then
 	Pop the top node from stack and print it
@@ -116,7 +112,7 @@ public class iterativeTraversals {
 	
 	
 	//use this
-	public List<Integer> postorderTraversal(TreeNode root) {
+	public List<Integer> postorderTraversal(Node root) {
 		List<Integer> res = new ArrayList<Integer>();
 		if (root == null) return res;
 		Stack<Node> stack = new Stack<Node>();
@@ -139,4 +135,35 @@ public class iterativeTraversals {
 		}
 		return res;
 	}
+	
+	//http://www.geeksforgeeks.org/iterative-postorder-traversal/
+	public static void postOrderIterative(Node root){
+	        // Create two stacks
+		Stack<Node> s1 = new Stack<>();
+		Stack<Node> s2 = new Stack<>();
+	 
+	        if (root == null) return;
+	 
+	        // push root to first stack
+	        s1.push(root);
+	         
+	        // Run while first stack is not empty
+	        while (!s1.isEmpty()) {
+	            // Pop an item from s1 and push it to s2
+	        	Node temp = s1.pop();
+	            s2.push(temp);
+	         
+	            // Push left and right children of removed item to s1
+	            if (temp.left != null)
+	                s1.push(temp.left);
+	            if (temp.right != null)
+	                s1.push(temp.right);
+	        }
+	 
+	        // Print all elements of second stack
+	        while (!s2.isEmpty())  {
+	        	Node temp = s2.pop();
+	            System.out.print(temp.data + " ");
+	        }
+	    }
 }
