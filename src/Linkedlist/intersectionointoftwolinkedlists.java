@@ -70,12 +70,16 @@ Auxiliary Space: O(1)	*/
 		// in case if we dont know which one in longer
 		int c1= getCount(n1);
 		int c2 = getCount(n2);
-		
-		boolean contains = cc(n1,n2);
+		boolean contains = false;
+		if(c1 > c2){ 
+			contains = contains(n1,n2);
+		}else{
+			contains = contains(n2,n1);
+		}
 		return contains;
 	}
 	
-	public static boolean cc(Node n1, Node n2){
+	public static boolean contains(Node n1, Node n2){
 		Node h1 = n1;
 		Node h2 = n2;
 		while(h1 != null){
@@ -90,14 +94,5 @@ Auxiliary Space: O(1)	*/
 			h1 = h1.next;
 		}
 		return false;
-	}
-	public int getcou(Node n){
-		Node current = n;
-		int count = 0;
-		while(n.next != null){
-			count++;
-			n = n.next;
-		}
-		return count;
 	}
 }
