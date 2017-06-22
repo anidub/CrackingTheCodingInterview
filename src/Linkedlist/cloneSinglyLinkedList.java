@@ -30,20 +30,15 @@ public class cloneSinglyLinkedList {
 		}
 	}
 
-	// Actual clone method which returns head
-	// reference of cloned linked list.
-	public cloneSinglyLinkedList clone(){
-		// Initialize two references, one with original
-		// list's head.
+	public static Node clone(Node head){
+		// Initialize two references, one with original list's head.
 
-		Node origCurr = this.head, cloneCurr = null;
+		Node origCurr = head, cloneCurr = null;
 
-		// Hash map which contains node to node mapping of
-		// original and clone linked list.
+		// Hash map which contains node to node mapping of original and clone linked list.
 		Map<Node, Node> map = new HashMap<Node, Node>();
 
-		// Traverse the original list and make a copy of that
-		// in the clone linked list.
+		// Traverse the original list and make a copy of that in the clone linked list.
 		while (origCurr != null){
 			cloneCurr = new Node(origCurr.data);
 			map.put(origCurr, cloneCurr);
@@ -51,19 +46,21 @@ public class cloneSinglyLinkedList {
 		}
 
 		// Adjusting the original list reference again.
-		origCurr = this.head;
-
-		// Traversal of original list again to adjust the next
-		// and random references of clone list using hash map.
-		while (origCurr != null){
+		origCurr = head;
+		cloneCurr = null;
+		Node copied = null;
+		// Traversal of original list again to adjust the next and random references of clone list using hash map.
+		while (origCurr != null){			
 			cloneCurr = map.get(origCurr);
+			if(copied == null){
+				copied = map.get(origCurr);
+			}
 			cloneCurr.next = map.get(origCurr.next);
-		//	cloneCurr.random = map.get(origCurr.random);
 			origCurr = origCurr.next;
 		}
 
 		//return the head reference of the clone list.
-		return new cloneSinglyLinkedList(map.get(this.head));
+		return copied;
 	}
 	
 	// Driver Class
