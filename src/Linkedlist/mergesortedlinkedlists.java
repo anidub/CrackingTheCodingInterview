@@ -12,7 +12,7 @@ public class mergesortedlinkedlists {
 		n2.next = new Node(6);
 		n2.next.next = new Node(7);
 		n2.next.next.next = new Node(8);
-		 display(merge(n1,n2));
+		 display(mergeRecursive(n1,n2));
 	}
 	
 	public static void display(Node head){
@@ -23,19 +23,16 @@ public class mergesortedlinkedlists {
 		}
 	}
 	
-	public static Node merge(Node n1, Node n2) {
+	public static Node mergeRecursive(Node n1, Node n2) {
 	    if (n1 == null) return n2;
 	    if (n2 == null) return n1;
 
 	    if (n1.data < n2.data) {
-	        n1.next = merge(n1.next, n2);
+	        n1.next = mergeRecursive(n1.next, n2);
 	        return n1;
 	    } else {
-	        n2.next = merge(n2.next, n1);
+	        n2.next = mergeRecursive(n2.next, n1);
 	        return n2;
 	    }
 	}
-	
-	
-
 }
