@@ -1,21 +1,18 @@
 package Linkedlist;
 
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map.Entry;
-import java.util.Set;
-
 public class intersectionointoftwolinkedlists {
-//http://www.geeksforgeeks.org/write-a-function-to-get-the-intersection-point-of-two-linked-lists/
+/*//http://www.geeksforgeeks.org/write-a-function-to-get-the-intersection-point-of-two-linked-lists/
 	//Time complexity of this method is O(m+n) and used Auxiliary space is O(1)
-	
+	There are two singly linked lists in a system. By some programming error the end node of one of the linked list got linked into the second list,
+forming a inverted Y shaped list. Write a program to get the point where two linked list merge.
+Time Complexity: O(m+n)
+Auxiliary Space: O(1)	*/
 	public static void main(String[] args) {
 		Node n1 = new Node(3);
 		n1.next = new Node(6);
 		n1.next.next = new Node(15);
 		n1.next.next.next = new Node(15);
-		n1.next.next.next.next = new Node(30);
-		
+		n1.next.next.next.next = new Node(30);		
 		
 		Node n2 = new Node(6);
 		n2.next = new Node(15);
@@ -70,6 +67,7 @@ public class intersectionointoftwolinkedlists {
 	}
 		
 	public static boolean oneLinkedListContainsAnother(Node n1, Node n2){
+		// in case if we dont know which one in longer
 		int c1= getCount(n1);
 		int c2 = getCount(n2);
 		
@@ -92,5 +90,14 @@ public class intersectionointoftwolinkedlists {
 			h1 = h1.next;
 		}
 		return false;
+	}
+	public int getcou(Node n){
+		Node current = n;
+		int count = 0;
+		while(n.next != null){
+			count++;
+			n = n.next;
+		}
+		return count;
 	}
 }

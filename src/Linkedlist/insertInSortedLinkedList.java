@@ -13,15 +13,15 @@ public class insertInSortedLinkedList {
 	
 	public static void insert(Node n, int[] arr) {
 		Node current = n;
-		Node s = current;
+		Node displayNode = current;
 		for (int i = 0; i < arr.length; i++) {
 			int k = arr[i];
-			if (n.data > k) {
+			if (k < n.data) {
 				Node newN = new Node(k);
 				newN.next = n;
 			} else {
 				while (current != null) {
-					if (current.next.data > k) {
+					if (k < current.next.data) {
 						Node newN = new Node(k);
 						newN.next = current.next;
 						current.next = newN;
@@ -33,9 +33,9 @@ public class insertInSortedLinkedList {
 				}
 			}
 		}
-		while (s != null) {
-			System.out.print("->" + s.data);
-			s = s.next;
+		while (displayNode != null) {
+			System.out.print("->" + displayNode.data);
+			displayNode = displayNode.next;
 		}
-	}	
+	}
 }
