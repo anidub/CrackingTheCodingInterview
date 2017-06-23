@@ -1,7 +1,7 @@
 package StacksandQueues;
-import java.util.LinkedList;
+import java.util.NoSuchElementException;
 import java.util.Stack;
-
+//http://algs4.cs.princeton.edu/13stacks/QueueWithTwoStacks.java.html
 public class Implementqueueusing2stacks {
 		static Stack<Integer> newest;
 		static Stack<Integer> oldest;
@@ -12,11 +12,39 @@ public class Implementqueueusing2stacks {
 		}
 		
 		public int size(){
-			return newest.size() + oldest.size();
+			return newest.size() + oldest.size();	
 		}
-		
-		public void add(int element){
-			newest.push(element);
+
+		 // is the queue empty?
+	    public boolean isEmpty() {
+	        return oldest.isEmpty() && newest.isEmpty();
+	    }
+	    
+		// return the item least recently added to the queue.
+	    public int peek() {
+	        if (isEmpty()) throw new NoSuchElementException("Queue underflow");
+	        if (oldest.isEmpty()) shiftstacks();
+	        return oldest.peek();
+	    }
+
+	    // add the item to the queue
+	    public void enqueue(int item) {
+	    	newest.push(item);
+	    }
+
+	    // remove and return the item on the queue least recently added
+	    public int dequeue() {
+	        if (isEmpty()) throw new NoSuchElementException("Queue underflow");
+	        if (oldest.isEmpty()) shiftstacks();
+	        return oldest.pop();
+	    }
+	    
+		public static void display(){
+			shiftstacks();
+			System.out.println("Output of a queue would be :");
+			while(!oldest.empty()){
+				System.out.println(oldest.pop());
+			}
 		}
 		
 		public static void shiftstacks(){
@@ -24,9 +52,7 @@ public class Implementqueueusing2stacks {
 				while(!newest.isEmpty()){
 					oldest.push(newest.pop());
 				}
-			}
-			
-			
+			}			
 			//alternate
 			/* if(value.isEmpty()){
 		            value.push(x);
@@ -41,83 +67,13 @@ public class Implementqueueusing2stacks {
 		                value.push(temp.pop());
 		            }    
 		        }*/
-		}
-		
-		public int peek(){
-			shiftstacks();
-			return oldest.peek();
-		}
-		
-		public static void display(){
-			shiftstacks();
-			System.out.println("Output of a queue would be :");
-			while(!oldest.empty()){
-				System.out.println(oldest.pop());
-			}
-		}
+		}		
 
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) {		
 			Implementqueueusing2stacks queue = new Implementqueueusing2stacks();
 			for(int i = 1; i <= 4; i++){
-				queue.add(i);
+				queue.enqueue(i);
 			}
-			display();
-		
+			display();		
 	}
-	
-	
-	public void implementStackUsingQueues(){
-		LinkedList<Integer> queue1 = new LinkedList<Integer>();
-	    LinkedList<Integer> queue2 = new LinkedList<Integer>();
-	 
-	    // Push element x onto stack.
-	    public void push(int x) {
-	        if(isempty()){
-	            queue1.offer(x);
-	        }else{
-	            if(queue1.size()>0){
-	                queue2.offer(x);
-	                int size = queue1.size();
-	                while(size>0){
-	                    queue2.offer(queue1.poll());
-	                    size--;
-	                }
-	            }else if(queue2.size()>0){
-	                queue1.offer(x);
-	                int size = queue2.size();
-	                while(size>0){
-	                    queue1.offer(queue2.poll());
-	                    size--;
-	                }
-	            }
-	        }
-	    }
-	 
-	    // Removes the element on top of the stack.
-	    public void pop() {
-	        if(queue1.size()>0){
-	            queue1.poll();
-	        }else if(queue2.size()>0){
-	            queue2.poll();
-	        }
-	    }
-	 
-	    // Get the top element.
-	    public int top() {
-	       if(queue1.size()>0){
-	            return queue1.peek();
-	        }else if(queue2.size()>0){
-	            return queue2.peek();
-	        }
-	        return 0;
-	    }
-	 
-	    // Return whether the stack is empty.
-	    public boolean isempty() {
-	        return queue1.isEmpty() && queue2.isEmpty();
-	    }
-		
-	}
-
 }
