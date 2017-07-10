@@ -57,6 +57,20 @@ public class TreesPopulateNextRightPointers {
 	        }	        
 	    }
 	  
+	  			  //http://www.geeksforgeeks.org/connect-nodes-at-same-level/
+	  public void connectRecursive(TreeLinkNode root){
+			if(root == null) return;
+			
+			if(root.left != null)
+				root.left.next = root.right;
+			
+			if(root.right != null){
+				root.right.next = root.next != null ? root.next.left : null;
+			}
+			
+			connectRec(root.left);
+			connectRec(root.right);
+		}
 //  http://www.geeksforgeeks.org/connect-nodes-at-same-level-with-o1-extra-space/	  
 	  public TreeLinkNode getNextRight(TreeLinkNode root){
 	        TreeLinkNode temp = root.next;	  
