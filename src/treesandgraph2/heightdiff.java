@@ -1,5 +1,10 @@
 package treesandgraph2;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
+import Linkedlist.Linkedlist;
+
 //https://www.careercup.com/question?id=5670909168844800
 /*Find the height difference between two nodes in a binary tree.
 
@@ -25,6 +30,12 @@ public class heightdiff {
 	}
 
 	public static int GetHeightDifference(Node root, Node node1, Node node2) {
+		int diff = Math.abs(getheightiterative(root, node1) - getheightiterative(root, node2));
+		int a1 = getheightiterative(root, node1) ;
+		int a2 = getheightiterative(root, node2) ;
+		System.out.println(diff);
+		int d1 = GetHeight(root, node1, 0);
+		int d2 = GetHeight(root, node2, 0);
 		return Math.abs(GetHeight(root, node1, 0) - GetHeight(root, node2, 0));
 	}
 
@@ -38,5 +49,24 @@ public class heightdiff {
 		
 		return Math.max(GetHeight(root.left, node, depth+1),GetHeight(root.right, node, depth+1));
 	}
-
+	
+	public static int getheightiterative(Node root, Node node){
+		if(root == null || node == null) return -1;
+		Queue<Node> queue = new LinkedList<>();
+		queue.add(root);
+		int height = 0;
+		while(!queue.isEmpty()){
+			int nodecount = queue.size();
+			if(nodecount == 0) return height;
+			height++;
+			while(nodecount > 0){
+				Node temp = queue.poll();
+				if(temp == node) return height;
+				if(temp.left != null) queue.add(temp.left);
+				if(temp.right != null) queue.add(temp.right);
+				nodecount--;
+			}
+		}
+		return height;
+	}
 }
