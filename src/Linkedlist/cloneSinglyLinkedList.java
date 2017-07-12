@@ -29,7 +29,8 @@ public class cloneSinglyLinkedList {
 			temp = temp.next;
 		}
 	}
-
+	
+	//use this
 	public static Node clone(Node head){
 		// Initialize two references, one with original list's head.
 
@@ -102,62 +103,4 @@ public class cloneSinglyLinkedList {
 				n.next.next.next.next = new Node(5);
 				//cc(n);
 			}
-			
-			
-			//use this method
-	public static void cc(Node n) {
-		Node head = n;
-		Node a = new Node(n.data);
-		Node p = a;
-		int previous = head.data;
-		int nn = head.next.data;
-		while (head.next.next != null) {
-			a.next = new Node(previous);
-			a.next.next = new Node(nn);
-			head = head.next;
-			a = a.next.next;
-			previous = head.data;
-			nn = head.next.data;
-		}
-		a.next = new Node(previous);
-		a.next.next = new Node(nn);
-		a.next.next.next = new Node(nn);
-
-		a = p;
-		/*while (p != null) {
-			System.out.print(" -> " + p.data);
-			p = p.next;
-		}*/
-		System.out.println();
-		seperate(p);
-
-	}
-	
-	
-	//use this method
-	public static void seperate(Node n){
-		Node head = n;
-		Node a = n;
-		Node p = a;
-		Node b = n;
-		
-		while(head.next.next != null){
-			a.data = head.data;
-			b.data = head.data;
-			
-			a = a.next;
-			b = b.next;
-			
-			head = head.next.next;
-		}
-		
-		a.data = head.data;a.next = null;
-		b.data = head.data;b.next = null;
-		System.out.println();
-		while(p != null){
-			System.out.print(p.data + " ");
-			p = p.next;
-		}
-		
-	}
-;}
+}
