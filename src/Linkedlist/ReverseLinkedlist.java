@@ -58,8 +58,7 @@ public class ReverseLinkedlist {
 		if(head == null) return -1;
 		int count = 1;
 		Node temp = head;
-		while(temp != null){
-			
+		while(temp != null){			
 			if(count == index) return temp.data;
 			count++;
 			temp = temp.next;
