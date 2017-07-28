@@ -100,7 +100,7 @@ public class q6nextsucessornode {
 		}
 		
 		if(current == null) return null;
-		if(current.right == null) return current;
+		if(current.right == null) return next;
 		current = current.right;
 		while(current.left != null){
 			current = current.left;
