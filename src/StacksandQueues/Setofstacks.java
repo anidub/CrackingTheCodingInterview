@@ -25,7 +25,7 @@ public class Setofstacks {
 		totalsize++;
 
 		int stackindex = (totalsize - 1) / capacity;
-		if (stacks.size() - 1 < stackindex) {
+		if (stackindex > stacks.size() - 1) {
 			Stack newstack = new Stack();
 			newstack.push(item);
 			stacks.add(newstack);
@@ -46,7 +46,7 @@ public class Setofstacks {
 		totalsize--;
 		return item;
 	}
-		
+	
 	public String toString() {
 		String str = "";
 		for (Stack stack : stacks) {

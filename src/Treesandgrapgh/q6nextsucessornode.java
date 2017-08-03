@@ -59,7 +59,7 @@ public class q6nextsucessornode {
         if(right!=null) right.parent = parent;
     }
 
-	public BNode getInorderSuccessor(BNode node){
+	public BNode getInorderSuccessor(BNode node){//Normal BT
 		if(node == null)
 			return null;
 		if(node.right != null){

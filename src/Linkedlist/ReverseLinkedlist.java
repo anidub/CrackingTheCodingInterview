@@ -8,6 +8,8 @@ public class ReverseLinkedlist {
 		n.next.next = new Node(3);
 		n.next.next.next = new Node(4);
 		n.next.next.next.next = new Node(5);
+		n.next.next.next.next.next = new Node(6);
+		swapNodes(n,3,5);
 		
 		//display(n);
 		System.out.println();
@@ -58,7 +60,8 @@ public class ReverseLinkedlist {
 		if(head == null) return -1;
 		int count = 1;
 		Node temp = head;
-		while(temp != null){			
+		while(temp != null){
+			
 			if(count == index) return temp.data;
 			count++;
 			temp = temp.next;

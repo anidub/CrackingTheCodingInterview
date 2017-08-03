@@ -11,7 +11,7 @@ public class q7commonancestortwonodes {
 				tree = n;
 			}
 			
-			public class result commonancestorhelp(BSTNode root, BSTNode p, BSTNode q){
+		public class result commonancestorhelp(BSTNode root, BSTNode p, BSTNode q){
 				if(root == null)
 					return new result(null,false);
 				if(root == p || root == q)
@@ -32,19 +32,12 @@ public class q7commonancestortwonodes {
 						return new result(root,isancestor);
  					}else{
  						return new result(rx.node != null ? true : rx.node,false);
- 					}
-					
-			}
-			
-			
-			
-			
+ 					}					
+			}			
 		}
 	
 	
 	public static void main(String[] args) {
 
-
 	}
-
 }

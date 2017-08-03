@@ -30,7 +30,6 @@ public class cloneSinglyLinkedList {
 		}
 	}
 	
-	//use this
 	public static Node clone(Node head){
 		// Initialize two references, one with original list's head.
 
@@ -64,6 +63,27 @@ public class cloneSinglyLinkedList {
 		return copied;
 	}
 	
+	public static Node cl(Node head){
+		Node originalcur = head;
+		Node clonecur = null;
+		HashMap<Node, Node> map = new HashMap<>();
+		while(originalcur != null){
+			clonecur = new Node(originalcur.data);
+			map.put(originalcur, clonecur);
+			originalcur = originalcur.next;
+		}
+		
+		originalcur = head;
+		
+		while(originalcur != null){
+			clonecur = map.get(originalcur);
+			clonecur.next = map.get(originalcur.next);
+			originalcur = originalcur.next;
+		}
+		
+		return map.get(head);
+	}
+	
 	// Driver Class
 	
 			// Main method.
@@ -87,13 +107,13 @@ public class cloneSinglyLinkedList {
 					list.head.next;*/
 
 				// Making a clone of the original linked list.
-				cloneSinglyLinkedList clone = list.clone();
+			//	cloneSinglyLinkedList clone = list.clone();
 
 				// Print the original and cloned linked list.
 				System.out.println("Original linked list");
 				list.print();
 				System.out.println("\nCloned linked list");
-				clone.print();
+				//clone.print();
 				
 				
 				Node n = new Node(1);
@@ -101,6 +121,63 @@ public class cloneSinglyLinkedList {
 				n.next.next = new Node(3);
 				n.next.next.next = new Node(4);
 				n.next.next.next.next = new Node(5);
-				//cc(n);
 			}
+			
+			
+			//use this method
+	public static void cc(Node n) {
+		Node head = n;
+		Node a = new Node(n.data);
+		Node p = a;
+		int previous = head.data;
+		int nextnode = head.next.data;
+		while (head.next.next != null) {
+			a.next = new Node(previous);
+			a.next.next = new Node(nextnode);
+			head = head.next;
+			a = a.next.next;
+			previous = head.data;
+			nextnode = head.next.data;
+		}
+		a.next = new Node(previous);
+		a.next.next = new Node(nextnode);
+		a.next.next.next = new Node(nextnode);
+
+		a = p;
+		/*while (p != null) {
+			System.out.print(" -> " + p.data);
+			p = p.next;
+		}*/
+		System.out.println();
+		seperate(p);
+
+	}
+	
+	
+	//use this method
+	public static void seperate(Node n){
+		Node head = n;
+		Node a = n;
+		Node p = a;
+		Node b = n;
+		
+		while(head.next.next != null){
+			a.data = head.data;
+			b.data = head.data;
+			
+			a = a.next;
+			b = b.next;
+			
+			head = head.next.next;
+		}
+		
+		a.data = head.data;a.next = null;
+		b.data = head.data;b.next = null;
+		System.out.println();
+		while(p != null){
+			System.out.print(p.data + " ");
+			p = p.next;
+		}
+		
+	}
 }

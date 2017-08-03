@@ -1,5 +1,7 @@
 package Treesandgrapgh;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 
@@ -63,22 +65,21 @@ class BSTNode{
 		}
 		
 		//insert
-		public void insert(int data){
-				root = insert(root,data);
-		}
+	public void insert(int data) {
+		root = insert(root, data);
+	}
 		
-		private BSTNode insert(BSTNode n, int data){
-			if(n == null){
-				n  = new BSTNode(data);
-			}else
-				if(data <= n.getdata())
-					n.left = insert(n.left,data);
-				else
-					n.right = insert(n.right,data);
-								
-					return n;
-					
-		}
+	private BSTNode insert(BSTNode n, int data) {
+		if (n == null) {
+			n = new BSTNode(data);
+		} else if (data <= n.getdata())
+			n.left = insert(n.left, data);
+		else
+			n.right = insert(n.right, data);
+
+		return n;
+
+	}
 		
 		//function to count nodes
 		public int countnodes(){
@@ -117,7 +118,52 @@ class BSTNode{
 		}
 		return found;
 	}
+	
+	// A utility function to search a given key in BST
+	public Node search(Node root, int key){
+	    // Base Cases: root is null or key is present at root
+	    if (root==null || root.data==key)
+	        return root;
+
+	    // val is greater than root's key
+	    if (root.data > key)
+	        return search(root.left, key);
+
+	    // val is less than root's key
+	    return search(root.right, key);
+	}
 		
+	// An iterative process to search an element x in a given binary tree
+	bool iterativeSearch(node *root, int x)
+	{
+	    // Base Case
+	    if (root == NULL)
+	        return false;
+	 
+	    // Create an empty queue for level order traversal
+	    queue<node *> q;
+	 
+	    // Enqueue Root and initialize height
+	    q.push(root);
+	 
+	    // Queue based level order traversal
+	    while (q.empty() == false)
+	    {
+	        // See if current node is same as x
+	        node *node = q.front();
+	        if (node->data == x)
+	            return true;
+	 
+	        // Remove current node and enqueue its children
+	        q.pop();
+	        if (node->left != NULL)
+	            q.push(node->left);
+	        if (node->right != NULL)
+	            q.push(node->right);
+	    }
+	 
+	    return false;
+	}
 		//function to delete
 		public void delete(int k){
 			delete(root,k);
@@ -320,7 +366,68 @@ public class BinarySearchTree {
 	            System.out.println("\nDo you want to continue (Type y or n) \n");
 	            ch = scan.next().charAt(0);                        
 	        } while (ch == 'Y'|| ch == 'y');          
-
 	}
-
+	
+	
+	
+    /* Given a binary tree, return true if the tree is complete
+    else false */
+ static boolean isCompleteBT(Node root) {
+     // Base Case: An empty tree is complete Binary Tree
+     if(root == null)
+         return true;
+      
+     // Create an empty queue
+     Queue<Node> queue =new LinkedList<>();
+      
+     // Create a flag variable which will be set true
+     // when a non full node is seen
+     boolean flag = false;
+      
+     // Do level order traversal using queue.
+     queue.add(root);
+     while(!queue.isEmpty())
+     {
+         Node temp_node = queue.remove();
+          
+         /* Check if left child is present*/
+         if(temp_node.left != null){
+              // If we have seen a non full node, and we see a node with non-empty left child, then the given tree is not a complete Binary Tree
+             if(flag == true)
+                 return false;
+              
+              // Enqueue Left Child
+             queue.add(temp_node.left);
+         } // If this a non-full node, set the flag as true
+         else
+             flag = true;
+          
+         /* Check if right child is present*/
+         if(temp_node.right != null){
+             // If we have seen a non full node, and we see a node with non-empty right child, then the given tree is not a complete Binary Tree
+             if(flag == true)
+                 return false;
+              
+             // Enqueue Right Child
+             queue.add(temp_node.right);              
+         }
+         // If this a non-full node, set the flag as true
+         else
+             flag = true;
+     }
+      // If we reach here, then the tree is complete Bianry Tree
+     return true;
+ }
+ 
+ 
+ bool isCompleteBT(struct node* root)
+ {
+ if(root==NULL)
+ return true;
+ if(root->left==NULL&&root->right==NULL)
+ return true;
+ if(root->left==NULL&&root->right!=NULL)
+ return false;
+ return (isCompleteBT(root->left)&&isCompleteBT(root->right));
+ }
 }

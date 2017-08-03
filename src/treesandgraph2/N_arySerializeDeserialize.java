@@ -123,14 +123,14 @@ public class N_arySerializeDeserialize {
          return result;  
     }  
 
-		public boolean equals(Node compareTo) {//recursive method
+		public boolean equals(Node compareTo) {
 			if (null == compareTo) {
 				return false;
 			}
 			if (this.key.equals(compareTo.key)) {
 				boolean result = true;
 				for (int i = 0; i < this.childs.size(); i++) {
-					result = result && this.childs.get(i).equals(compareTo.childs.get(i));//recursive call for equals
+					result = result && this.childs.get(i).equals(compareTo.childs.get(i));
 				}
 				return result;
 			} else {

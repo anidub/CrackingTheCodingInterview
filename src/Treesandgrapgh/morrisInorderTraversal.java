@@ -35,7 +35,6 @@ Time Complexity : how many times a tree node will be traversed. As it is constan
 			} /* End of if condition current->left == NULL */
 		} /* End of while */
 	}
-		
 		public static void main(String[] args){
 			Node root = new Node(1);
 			root.left = new Node(2);

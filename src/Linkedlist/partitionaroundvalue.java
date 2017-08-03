@@ -35,8 +35,7 @@ public class partitionaroundvalue {
 		}
 			cur2.next = null;
 			cur1.next = righthead.next;
-			return lefthead.next;
-		
+			return lefthead.next;	
 	}
 	
 	public static void display(Node head){

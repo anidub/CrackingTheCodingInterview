@@ -62,16 +62,16 @@ import java.util.Scanner;
 			root = insert(root,data);
 		}
 		//function to insert data recursively
-		private BTNode insert(BTNode node, int data){
-			if(node == null){
-				node = new BTNode(data);
-			}else{
-					if(node.getRight() == null)
-						node.right = insert(node.right,data);
-					else
-						node.left = insert(node.left,data);
+	private BTNode insert(BTNode node, int data) {
+		if (node == null) {
+			node = new BTNode(data);
+		} else {
+			if (node.getRight() == null)
+				node.right = insert(node.right, data);
+			else
+				node.left = insert(node.left, data);
 		}
-			return node;
+		return node;
 	}
 		//function to count number of nodes
 		public int countNodes(){
@@ -141,62 +141,60 @@ import java.util.Scanner;
 		}
 	}
 	
-	public class Binarytree {
-	
+public class Binarytree {
+
 	public static void main(String[] args) {
-			Scanner scanner = new Scanner(System.in);
-			//create object of BT
-			BT bt = new BT();
-			//perform tree operation
-			System.out.println("Binary Tree Test \n");
-			char ch;
-			do{
-				System.out.println("\nBinary Tree Operation\n");
-				System.out.println("1.Insert");
-				System.out.println("2.Search");
-				System.out.println("3.Count Nodes");
-				System.out.println("4.Check empty");
-				
-				int choice = scanner.nextInt();
-				
-				switch(choice){
-				case 1:
-					System.out.println("Enter integer element to insert : ");
-					bt.insert(scanner.nextInt());
-					break;
-				
-				case 2:
-					System.out.println("Enter integer element to search : ");
-					System.out.println("Search result: " + bt.search(scanner.nextInt()));
-					break;
-					
-				case 3:
-					System.out.println("Nodes = " + bt.countNodes());
-					break;
-				
-				case 4:
-					System.out.println("Empty status = " + bt.isEmpty());
-					break;
-					
-				default:
-					System.out.println("Enter valid choice \n");
-					break;
-				}
-				
-				//display tree
-				System.out.println("\n Post Order : ");
-				bt.postorder();
-				
-				System.out.println("\n Pre Order : ");
-				bt.preorder();
-				
-				System.out.println("\n In Order : ");
-				bt.inorder();
-				
-				System.out.println("\n\n Do you want to continue (Type y or n) \n");
-				ch = scanner.next().charAt(0);
-			}while(ch == 'Y' || ch == 'y');
+		Scanner scanner = new Scanner(System.in);
+		// create object of BT
+		BT bt = new BT();
+		// perform tree operation
+		System.out.println("Binary Tree Test \n");
+		char ch;
+		do {
+			System.out.println("\nBinary Tree Operation\n");
+			System.out.println("1.Insert");
+			System.out.println("2.Search");
+			System.out.println("3.Count Nodes");
+			System.out.println("4.Check empty");
+
+			int choice = scanner.nextInt();
+
+			switch (choice) {
+			case 1:
+				System.out.println("Enter integer element to insert : ");
+				bt.insert(scanner.nextInt());
+				break;
+
+			case 2:
+				System.out.println("Enter integer element to search : ");
+				System.out.println("Search result: " + bt.search(scanner.nextInt()));
+				break;
+
+			case 3:
+				System.out.println("Nodes = " + bt.countNodes());
+				break;
+
+			case 4:
+				System.out.println("Empty status = " + bt.isEmpty());
+				break;
+
+			default:
+				System.out.println("Enter valid choice \n");
+				break;
 			}
+
+			// display tree
+			System.out.println("\n Post Order : ");
+			bt.postorder();
+
+			System.out.println("\n Pre Order : ");
+			bt.preorder();
+
+			System.out.println("\n In Order : ");
+			bt.inorder();
+
+			System.out.println("\n\n Do you want to continue (Type y or n) \n");
+			ch = scanner.next().charAt(0);
+		} while (ch == 'Y' || ch == 'y');
 	}
-
-
+}

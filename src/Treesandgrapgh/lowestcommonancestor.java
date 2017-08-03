@@ -1,5 +1,7 @@
 package Treesandgrapgh;
 
+import Trie.readFile;
+
 public class lowestcommonancestor {
 //time complexity of the above solution is O(n)
 	static class Node {
@@ -135,8 +137,31 @@ public class lowestcommonancestor {
 	}
 	
 	/*
+	 * Time Complexity : O(h) where h is height of Binary Tree
+	 *  O(1) Extra Space 
 	 * use this for iterative
 	 * iterative//http://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-tree-set-2-using-parent-pointer/
+	 *  Node insert(Node node, int key)   {
+        //* If the tree is empty, return a new node 
+        if (node == null)
+            return new Node(key);
+ 
+         Otherwise, recur down the tree 
+        if (key < node.key) 
+        {
+            node.left = insert(node.left, key);
+            node.left.parent = node;
+        } 
+        else if (key > node.key) 
+        {
+            node.right = insert(node.right, key);
+            node.right.parent = node;
+        }
+ 
+         return the (unchanged) node pointer 
+        return node;
+    }*/
+ 
 	 public N lc(N n1, N n2){
 		int d1 = getHeight(n1);
 		int d2 = getHeight(n2);
@@ -191,7 +216,7 @@ public class lowestcommonancestor {
 			}  
 			return root;
 		}
-	}*/
+	}
 
 	  /* IF BST !!!!!.http://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/
 	   * Function to find LCA of n1 and n2. The function assumes that both
@@ -209,5 +234,5 @@ public class lowestcommonancestor {
          return lca(node.right, n1, n2);
 
      return node;
- 	}	 
+ 	}	
  }

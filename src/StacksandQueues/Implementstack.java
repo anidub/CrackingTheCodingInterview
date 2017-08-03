@@ -3,7 +3,7 @@ package StacksandQueues;
 public class Implementstack  {
 
 	static int top;
-	 static int maxsize;
+	static int maxsize;
 	int len;
 	static int[] arr;
 	

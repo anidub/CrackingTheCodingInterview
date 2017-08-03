@@ -7,15 +7,15 @@ package treesandgraph2;
 class Maximum{
 	int max_no = Integer.MIN_VALUE;
 }
-public class maxsumroottoleaf {
+public  class maxsumroottoleaf {
 	// A wrapper class is used so that max_no  can be updated among function calls.
 	 Node root;
-	 Maximum max = new Maximum();
-    Node target_leaf = null;
+	 int max = new Maximum();
+	 Node target_leaf = null;
     
 	
 	
-	public void getTargetLeaf(Node node, Maximum max_sum_ref, int curr_sum){
+	public  void getTargetLeaf(Node node, Maximum max_sum_ref, int curr_sum){
 		if (node == null) return;
 
 		// Update current sum to hold sum of nodes on
@@ -69,8 +69,7 @@ public class maxsumroottoleaf {
         return false;
    	}
    
-   public static void main(String args[])
-   {
+   public static void main(String args[]){
 	   maxsumroottoleaf tree = new maxsumroottoleaf();
        tree.root = new Node(10);
        tree.root.left = new Node(-2);
@@ -87,5 +86,4 @@ public class maxsumroottoleaf {
    //Following are the nodes on the maximum sum path
   // 7 10
   // Sum of the nodes is 17
-
 }

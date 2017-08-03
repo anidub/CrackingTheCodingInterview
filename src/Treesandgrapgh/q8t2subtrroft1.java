@@ -26,7 +26,6 @@ public static boolean matchtree(BSTNode t1, BSTNode t2){
 		return false;
 	return matchtree((t1.left, t2.left) && (t1.right, t2.right));
 }
- 	
 	public static void main(String[] args) {
 	
 	}

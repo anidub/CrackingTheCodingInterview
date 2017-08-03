@@ -33,5 +33,4 @@ public class normaltreetoBST {
 		// TODO Auto-generated method stub
 
 	}
-
 }

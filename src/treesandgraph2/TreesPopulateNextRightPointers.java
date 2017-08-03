@@ -16,9 +16,7 @@ public class TreesPopulateNextRightPointers {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-	}
-	
+	}	
 	  public void connectLevelOrder(TreeLinkNode root) {	        
 	        Queue<TreeLinkNode> queue1 = new LinkedList<>();
 	        Queue<TreeLinkNode> queue2 = new LinkedList<>();	        
@@ -57,7 +55,7 @@ public class TreesPopulateNextRightPointers {
 	        }	        
 	    }
 	  
-	  			  //http://www.geeksforgeeks.org/connect-nodes-at-same-level/
+	  //http://www.geeksforgeeks.org/connect-nodes-at-same-level/
 	  public void connectRecursive(TreeLinkNode root){
 			if(root == null) return;
 			
@@ -71,6 +69,7 @@ public class TreesPopulateNextRightPointers {
 			connectRec(root.left);
 			connectRec(root.right);
 		}
+	  
 //  http://www.geeksforgeeks.org/connect-nodes-at-same-level-with-o1-extra-space/	  
 	  public TreeLinkNode getNextRight(TreeLinkNode root){
 	        TreeLinkNode temp = root.next;	  
@@ -85,6 +84,21 @@ public class TreesPopulateNextRightPointers {
 	        // If all the nodes at p's level are leaf nodes then return NULL
 	        return null;
 	    }
+		
+			  //http://www.geeksforgeeks.org/connect-nodes-at-same-level/
+	  public void connectRecursive(TreeLinkNode root){
+			if(root == null) return;
+			
+			if(root.left != null)
+				root.left.next = root.right;
+			
+			if(root.right != null){
+				root.right.next = root.next != null ? root.next.left : null;
+			}
+			
+			connectRec(root.left);
+			connectRec(root.right);
+		}
 	    
 	   public void connect(TreeLinkNode root) {
 	        if (root == null) return;	  
@@ -132,3 +146,4 @@ public class TreesPopulateNextRightPointers {
 	   Also the average case is O(n*log(n)).
 	   It's fast enough, previous post provided a O(n) way but need O(n) extra space.	   
 */}
+

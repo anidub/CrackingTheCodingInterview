@@ -97,9 +97,9 @@ public class detectcycleingraph {
 					if(isCyclicUndirectedUtil(graph,  n,visited,v))
 						return true;
 				}
-			/*	For every visited vertex â€˜vâ€™, if there is an adjacent â€˜uâ€™ such that u is 
+			/*	For every visited vertex ‘v’, if there is an adjacent ‘u’ such that u is 
 				already visited and u is not parent of v, then there is a cycle in graph. 
-				If we donâ€™t find such an adjacent for any vertex, we say that there is no cycle. */
+				If we don’t find such an adjacent for any vertex, we say that there is no cycle. */
 				else if(n != parent)
 					return true;
 			}

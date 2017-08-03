@@ -116,13 +116,10 @@ public class animalshelter {
 				return dequeuedogs();
 			}else if(Dogs.getFirst().timestamp < Cats.getFirst().timestamp){
 				return dequeuedogs();
-			}else
-				
+			}else				
 				return dequeuecats();
-			return null;
-			
-		}
-		
+			return null;		
+		}		
  		
 	public static void main(String[] args) {
 		animalshelter q = new animalshelter();
@@ -140,7 +137,5 @@ public class animalshelter {
         System.out.println(q.dequeueAny());
         System.out.println(q.dequeuedogs());
         System.out.println(q.dequeuecats());
-
-	}
-
+}
 }

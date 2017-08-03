@@ -147,10 +147,7 @@ public class ImplementQueue {
 			for(int i = front; i <= rear; i++){
 				System.out.println(Queue[i]+ "  ");
 			}
-	}
-	
-	
-	
+	}	
 	
 	public static void main(String[] args) {
 		ImplementQueue queue = new ImplementQueue(1);
@@ -163,8 +160,6 @@ public class ImplementQueue {
 		System.out.println("After remove : ");
 		queue.remove();
 		display();
-		
-
 	}
-
+	
 }

@@ -1,10 +1,7 @@
 package treesandgraph2;
 
-public class findDensity {
-	
-	
-	int size = 0;
-	
+public class findDensity {	
+	int size = 0;	
 	
 	public float denisty(Node root){
 		int height = heightandsize(root);
@@ -18,10 +15,7 @@ public class findDensity {
 		size++;
 		return l > r ? l+1:r+1;
 	}
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
 	}
-
 }

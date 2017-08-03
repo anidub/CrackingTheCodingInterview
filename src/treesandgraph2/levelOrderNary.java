@@ -2,8 +2,7 @@ package treesandgraph2;
 
 import java.util.ArrayList;
 import java.util.List;
-
-
+//Print an n-ary tree with level. 
 ///https://www.careercup.com/question?id=4880578318958592
 //O(n)
 
@@ -71,12 +70,17 @@ public class levelOrderNary {
         ch14.addChild(ch16);  
         ch14.addChild(ch17);  
         
-        printNodeElements(root);
+        try {
+			printNodeElements(root);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 	
 	//works
-	private static void printNodeElements(Node tree) {
+	private static void printNodeElements(Node tree) throws Exception {
 		if (tree == null)
 			System.out.println(" tree is null ");
 
@@ -98,9 +102,7 @@ public class levelOrderNary {
 		System.out.println("Level " + level + ": " + builder.toString());
 		printNodeElements(nextLevelNodes, level + 1);
 	}
-	
-	
-	
+		
 	//binary	
 	/*public static void printLevelOrder(Node  root){
 		if(root == null) return;
@@ -128,5 +130,4 @@ public class levelOrderNary {
 			}
 		}
 	}*/
-
 }

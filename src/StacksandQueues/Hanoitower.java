@@ -70,9 +70,6 @@ public class Hanoitower {
 	
 		while(!towers[2].disks.isEmpty()){
 			System.out.println(towers[2].disks.pop() + " ");
-		}
-		
+		}		
 	}
-
-
 }

@@ -12,6 +12,7 @@ public class addllreverseorder {
 		Node result = new Node(0);
 		Node p3 = result;
 		int carry = 0;
+		//while both lists exist
 		while(p1 != null || p2 != null){
 			if(p1 != null){
 				carry += p1.data;

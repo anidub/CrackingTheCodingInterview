@@ -42,16 +42,16 @@ public class Linkedlistmergesort {
 	 public static Node merge(Node first, Node second){
 		 Node newhead = new Node(-1);
 		 Node current = newhead;
-		 while(first != null & second != null){
-		 if(first.data <= second.data){
-			 current.next = first;
-			 first = first.next;
-		 }else{
-			 current.next = second;
-			 second = second.next;
-		 }
-		 current = current.next;
-		 }
+		while (first != null && second != null) {
+			if (first.data <= second.data) {
+				current.next = first;
+				first = first.next;
+			} else {
+				current.next = second;
+				second = second.next;
+			}
+			current = current.next;
+		}
 		 if(first == null){
 			 current.next = second;
 		 }else{

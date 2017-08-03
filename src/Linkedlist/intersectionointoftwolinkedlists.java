@@ -1,98 +1,175 @@
+/*Skip to content
+Features Business Explore Marketplace Pricing
+This repository
+Search
+Sign in or Sign up
+ Watch 1  Star 0  Fork 0 anidub/CrackingTheCodingInterview
+ Code  Issues 0  Pull requests 0  Projects 0 Insights 
+Branch: master Find file Copy pathCrackingTheCodingInterview/src/Linkedlist/cloneSinglyLinkedList.java
+c17ad2a  4 hours ago
+@anidub anidub Update cloneSinglyLinkedList.java
+1 contributor
+RawBlameHistory     
+164 lines (134 sloc)  3.84 KB*/
 package Linkedlist;
 
-public class intersectionointoftwolinkedlists {
-/*//http://www.geeksforgeeks.org/write-a-function-to-get-the-intersection-point-of-two-linked-lists/
-	//Time complexity of this method is O(m+n) and used Auxiliary space is O(1)
-	There are two singly linked lists in a system. By some programming error the end node of one of the linked list got linked into the second list,
-forming a inverted Y shaped list. Write a program to get the point where two linked list merge.
-Time Complexity: O(m+n)
-Auxiliary Space: O(1)	*/
-	public static void main(String[] args) {
-		Node n1 = new Node(3);
-		n1.next = new Node(6);
-		n1.next.next = new Node(15);
-		n1.next.next.next = new Node(15);
-		n1.next.next.next.next = new Node(30);		
-		
-		Node n2 = new Node(6);
-		n2.next = new Node(15);
-		n2.next.next = new Node(25);
-		//n2.next.next.next = new Node(30);
-		
-		//System.out.println(getNode(n1,n2));isLinkedListContains
-		System.out.println(oneLinkedListContainsAnother(n1,n2));
-	}
+import java.util.HashMap;
+import java.util.Map;
+// or just copy the linked list to another linkedlist and return the new linkedlist incase on singly linkedlist with no random pointer
+public class cloneSinglyLinkedList {
 	
-	public static int getNode(Node n1, Node n2){
-		if(n1 == null) return -1;
-		if(n2 == null) return -1;
-		
-		int c1 = getCount(n1);
-		int c2 = getCount(n2);
-		int d = 0;
-		if(c1 > c2){
-			d = c1 - c2;
-			return intersectionNode(d, n1, n2);
-		}
-		if(c2 > c1){
-			d = c2 - c1;
-			return intersectionNode(d, n2, n1);
-		}
-		return -1;
-	}
+	Node head;
 	
-	public static int intersectionNode(int d, Node n1, Node n2){
-		for(int i = 0; i < d; i++){
-			n1 = n1.next;
+	public cloneSinglyLinkedList(Node head){
+		this.head = head;
+	}
+
+	// push method to put data always at the head
+	// in the linked list.
+	public void push(int data){
+		Node node = new Node(data);
+		node.next = this.head;
+		this.head = node;
+	}
+
+	// Method to print the list.
+	void print(){
+		Node temp = head;
+		while (temp != null){
+		//	Node random = temp.random;
+		//	int randomData = (random != null)? random.data: -1;
+			System.out.println("Data = " + temp.data);//", Random data = "+ randomData);
+			temp = temp.next;
 		}
-		Node current1 = n1; Node current2 = n2;
-		while(current1 != null && current2 != null){
-			if(current1.data == current2.data){
-				return current1.data;
+	}
+
+	public static Node clone(Node head){
+		// Initialize two references, one with original list's head.
+
+		Node origCurr = head, cloneCurr = null;
+
+		// Hash map which contains node to node mapping of original and clone linked list.
+		Map<Node, Node> map = new HashMap<Node, Node>();
+
+		// Traverse the original list and make a copy of that in the clone linked list.
+		while (origCurr != null){
+			cloneCurr = new Node(origCurr.data);
+			map.put(origCurr, cloneCurr);
+			origCurr = origCurr.next;
+		}
+
+		// Adjusting the original list reference again.
+		origCurr = head;
+		cloneCurr = null;
+		Node copied = null;
+		// Traversal of original list again to adjust the next and random references of clone list using hash map.
+		while (origCurr != null){			
+			cloneCurr = map.get(origCurr);
+			if(copied == null){
+				copied = map.get(origCurr);
 			}
-				current1 = current1.next;
-				current2 = current2.next;
+			cloneCurr.next = map.get(origCurr.next);
+			origCurr = origCurr.next;
 		}
-		return -1;
+
+		//return the head reference of the clone list.
+		return copied;
 	}
 	
-	public static int getCount(Node n){
-		Node current = n;
-		int count = 0;
-		while(current != null){
-			count++;
-			current = current.next;
-		}
-		return count;
-	}
-		
-	public static boolean oneLinkedListContainsAnother(Node n1, Node n2){
-		// in case if we dont know which one in longer
-		int c1= getCount(n1);
-		int c2 = getCount(n2);
-		boolean contains = false;
-		if(c1 > c2){ 
-			contains = contains(n1,n2);
-		}else{
-			contains = contains(n2,n1);
-		}
-		return contains;
-	}
+	// Driver Class
 	
-	public static boolean contains(Node n1, Node n2){
-		Node h1 = n1;
-		Node h2 = n2;
-		while(h1 != null){
-			if(h1.data == h2.data){
-				h1 = h1.next;h2 = h2.next;
-				while(h2 != null){
-					if(h1.data != h2.data) return false;
-					h1 = h1.next; h2 = h2.next;
-				}
-				return true;
+			// Main method.
+			public static void main(String[] args){
+				// Pushing data in the linked list.
+				cloneSinglyLinkedList list = new cloneSinglyLinkedList(new Node(5));
+				list.push(4);
+				list.push(3);
+				list.push(2);
+				list.push(1);
+
+				// Setting up random references.
+			/*	list.head.random = list.head.next.next;
+				list.head.next.random =
+					list.head.next.next.next;
+				list.head.next.next.random =
+					list.head.next.next.next.next;
+				list.head.next.next.next.random =
+					list.head.next.next.next.next.next;
+				list.head.next.next.next.next.random =
+					list.head.next;*/
+
+				// Making a clone of the original linked list.
+				cloneSinglyLinkedList clone = list.clone();
+
+				// Print the original and cloned linked list.
+				System.out.println("Original linked list");
+				list.print();
+				System.out.println("\nCloned linked list");
+				clone.print();
+				
+				
+				Node n = new Node(1);
+				n.next = new Node(2);
+				n.next.next = new Node(3);
+				n.next.next.next = new Node(4);
+				n.next.next.next.next = new Node(5);
+				//cc(n);
 			}
-			h1 = h1.next;
+			
+			
+			//use this method
+	public static void cc(Node n) {
+		Node head = n;
+		Node a = new Node(n.data);
+		Node p = a;
+		int previous = head.data;
+		int nn = head.next.data;
+		while (head.next.next != null) {
+			a.next = new Node(previous);
+			a.next.next = new Node(nn);
+			head = head.next;
+			a = a.next.next;
+			previous = head.data;
+			nn = head.next.data;
 		}
-		return false;
+		a.next = new Node(previous);
+		a.next.next = new Node(nn);
+		a.next.next.next = new Node(nn);
+
+		a = p;
+		/*while (p != null) {
+			System.out.print(" -> " + p.data);
+			p = p.next;
+		}*/
+		System.out.println();
+		seperate(p);
+
+	}
+	
+	
+	//use this method
+	public static void seperate(Node n){
+		Node head = n;
+		Node a = n;
+		Node p = a;
+		Node b = n;
+		
+		while(head.next.next != null){
+			a.data = head.data;
+			b.data = head.data;
+			
+			a = a.next;
+			b = b.next;
+			
+			head = head.next.next;
+		}
+		
+		a.data = head.data;a.next = null;
+		b.data = head.data;b.next = null;
+		System.out.println();
+		while(p != null){
+			System.out.print(p.data + " ");
+			p = p.next;
+		}		
 	}
 }

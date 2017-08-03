@@ -68,7 +68,6 @@ public class maxdiffnodeancestor {
 			
 			Diff(root.left, a, maxDiff);
 			Diff(root.right, a, maxDiff);	
-		}
-		
+		}		
 	}
 }

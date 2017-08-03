@@ -111,7 +111,3 @@ public class printVerticalOrder {
 		 return result;
 	}
 }
-
-
-
-

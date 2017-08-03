@@ -73,5 +73,4 @@ public class issymmetric {
 		n2.left = n5;
 		boolean issymetric = isSymmetric(n1);
 	}
-
 }

@@ -3,7 +3,7 @@ import java.util.Stack;
 
 public class maxvaluestack {
 	
-	     static Stack<Integer> maxvalue;
+	    static Stack<Integer> maxvalue;
 		static Stack<Integer> s;
 
 		

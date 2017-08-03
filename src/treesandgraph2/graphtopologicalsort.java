@@ -8,9 +8,9 @@ public class graphtopologicalsort {
 /*	Topological sorting for Directed Acyclic Graph (DAG) is a linear ordering of vertices such that 
 	for every directed edge uv, vertex u comes before v in the ordering. Topological Sorting for
 	a graph is not possible if the graph is not a DAG.
-	For example, a topological sorting of the following graph is ‚Äú5 4 2 3 1 0‚Äù. There 
+	For example, a topological sorting of the following graph is ì5 4 2 3 1 0î. There 
 	can be more than one topological sorting for a graph. For example, another topological sorting 
-	of the following graph is ‚Äú4 5 2 3 1 0‚Äù. The first vertex in topological sorting is always
+	of the following graph is ì4 5 2 3 1 0î. The first vertex in topological sorting is always
 	a vertex with in-degree as 0 (a vertex with no in-coming edges).	*/
 	public void topological(graph graph){
 		Stack stack = new Stack();
@@ -43,7 +43,5 @@ public class graphtopologicalsort {
 	}
 	public static void main(String[] args) {
 
-
 	}
-
 }

@@ -13,7 +13,7 @@ public class countnumberofleaves {
 		q.add(root);
 		int leafcount = 0;
 		while(q.size() != 0){
-			Node node = q.pop();
+			Node node = q.poll();
 			if(node.left != null){
 				q.add(node.left);
 			}

@@ -37,7 +37,7 @@ public class q3sortedarraytobst {
 			return data;
 		}
 			
-			public  BNode sortarraytobst(int[] array, int start,int end){
+		public  BNode sortarraytobst(int[] array, int start,int end){
 				if(end < start)
 					return null;
 				int mid = start + (end - start)/2;
@@ -49,7 +49,7 @@ public class q3sortedarraytobst {
 
 		public BNode arraybst(int[] array) {
 			return sortarraytobst(array, 0, array.length - 1);
-		}				
+		}
 	}
 	public static void main(String[] args) {
 	}

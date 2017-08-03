@@ -34,5 +34,4 @@ public Node deSerialize(ArrayList<Integer> array){
 	public static void main(String[] args) {
 		
 	}
-
 }

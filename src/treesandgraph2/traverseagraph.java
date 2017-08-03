@@ -35,8 +35,7 @@ public class traverseagraph {
 				dfsutil(n,visited);
 			}
 		}
-	}
-	
+	}	
 	public static void main(String args[])
     {
 		traverseagraph g = new traverseagraph(4);
@@ -54,5 +53,3 @@ public class traverseagraph {
         g.traversegraph(2);
     }
 }
-
-

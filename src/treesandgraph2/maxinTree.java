@@ -36,7 +36,6 @@ public class maxinTree {
 		System.out.println(max.getdata());
 	}
 	
-	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

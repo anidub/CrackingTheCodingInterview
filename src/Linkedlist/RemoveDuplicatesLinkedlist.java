@@ -1,7 +1,7 @@
 package Linkedlist;
 
+import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.Scanner;
 
 
 public class RemoveDuplicatesLinkedlist {
@@ -62,20 +62,16 @@ public class RemoveDuplicatesLinkedlist {
 	}
 	
 	public static void Removewithoutbuffer(Node head){
-		while(head.next != null){
-		Node pointer = head;
-		while(pointer.next != null){
-			if(head.data == pointer.next.data){
-				pointer.next = pointer.next.next;
+		while (head.next != null) {
+			Node pointer = head;
+			while (pointer.next != null) {
+				if (head.data == pointer.next.data) {
+					pointer.next = pointer.next.next;
+				} else
+					pointer = pointer.next;
 			}
-			else
-				pointer = pointer.next;
-			}
-		head = head.next;
-		
+			head = head.next;
 		}
 		//return head;
-	}
-	
+	}	
 }
-

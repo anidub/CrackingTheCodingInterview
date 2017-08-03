@@ -1,9 +1,6 @@
 package treesandgraph2;
 
 import java.util.Stack;
-
-
-
 //http://n00tc0d3r.blogspot.com/2013/03/flatten-binary-tree-to-linked-list-in.html
 public class flattenBinaryTree {
 	
@@ -40,7 +37,7 @@ public class flattenBinaryTree {
 		     root = flattenRecursive(root.right);  
 		   }  
 		   return root;   
-		 }  
+		 } 
 	 
 	 public void flattenNonRecursiveWithStack(Node root) {  
 		 Node cur = root;  

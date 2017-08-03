@@ -53,21 +53,13 @@ public class linkedlistoperations {
 						}else
 							tail = temp;
 							temp = tail.next;
-						}
-							
-					}
-					
-					
+						}							
+					}					
 				}else
 				System.out.println("Linkedlist is empty ");
 			break;
-			default : System.exit(0);		
-				
+			default : System.exit(0);				
 			}
-		}
-		
+		}		
+	}			
 	}
-			
-	}
-
-

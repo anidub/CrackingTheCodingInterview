@@ -2,6 +2,7 @@ package Treesandgrapgh;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class q2pathbetween2verticesdirectedgraph {
 	private int V;
@@ -66,6 +67,5 @@ public class q2pathbetween2verticesdirectedgraph {
 			System.out.println("There is a path from " + u + " to " + v);
 		else
 			System.out.println("There is no path from " + u + " to " + v);
-		;
 	}
 }

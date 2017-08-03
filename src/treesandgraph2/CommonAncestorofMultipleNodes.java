@@ -5,7 +5,7 @@ import java.util.Queue;
 
 public class CommonAncestorofMultipleNodes {
 //find the least common ancestor of a set of nodes..career cup //https://www.careercup.com/question?id=12174686
-	
+	//O(n2) 
 	public static void main(String[] args) {
 		Node n = new Node(1);
 		n.left = new Node(2);
@@ -57,5 +57,4 @@ public class CommonAncestorofMultipleNodes {
 		if(n.data == k) return true;
 		return contains(n.left,k) || contains(n.right,k);
 	}
-
 }

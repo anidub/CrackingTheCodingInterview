@@ -1,6 +1,7 @@
 package treesandgraph2;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class multisumofdataofleavesofsamelevels {
 //Given a Binary Tree, return following value for it.
@@ -50,5 +51,4 @@ public class multisumofdataofleavesofsamelevels {
 		}
 		return mul;
 	}
-
 }

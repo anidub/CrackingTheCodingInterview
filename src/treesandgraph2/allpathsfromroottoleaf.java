@@ -96,40 +96,35 @@ public class allpathsfromroottoleaf {
 	}*/
 	
 	
-public static void printAllPathToLeafNonRecursive(Node root) {
+	public static void printAllPathToLeafNonRecursive(Node root) {
+		if (root == null) {			
+			return;		
+		}
 
-    if (root == null) {
-        return;
-    }
+		Queue<Object> q = new LinkedList<Object>();
+		q.add(root);
+		q.add(root.data + "");
 
-    Queue<Object> q = new LinkedList<Object>();
-    q.add(root);
-    q.add(root.data + "");
+		while (!q.isEmpty()) {
+			Node head = (Node) q.poll();
+			String headPath = (String) q.poll();
 
-    while(!q.isEmpty()){
+			if (head.left == null && head.right == null) {
+				System.out.println(headPath);
+				continue;
+			}
 
-        Node head = (Node) q.poll();
-        String headPath = (String) q.poll();
+			if (head.left != null) {
+				String leftStr = headPath + "->" + head.left.data;
+				q.add(head.left);
+				q.add(leftStr);
+			}
 
-        if(head.left==null && head.right == null){
-            System.out.println(headPath);
-            continue;
-        }
-
-        if(head.left!=null){
-            String leftStr =  headPath + "->" + head.left.data;
-            q.add(head.left);
-            q.add(leftStr);
-        }
-
-        if(head.right!=null){
-            String rightStr =  headPath + "->" + head.right.data;
-            q.add(head.right);
-            q.add(rightStr);
-        }
-    }
-
-
-}
-
+			if (head.right != null) {
+				String rightStr = headPath + "->" + head.right.data;
+				q.add(head.right);
+				q.add(rightStr);
+			}
+		}
+	}
 }

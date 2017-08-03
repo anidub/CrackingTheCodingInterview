@@ -54,8 +54,8 @@ public class Singlearrayimplement3stacks {
         System.out.println("abs " + abstopofstack(0) );
         stack.pop(0);
         System.out.println ( "Peek stacknumber(0):" + peek (0 ));
-
 	}
+    
    //http://shashank7s.blogspot.com/2011/07/implement-3-stack-using-single-array.html
 //    /https://codereview.stackexchange.com/questions/12663/describe-how-you-could-use-a-single-array-to-implement-three-stacks
 /*    In this approach, any stack can grow as long as there is any free space in the array. We sequentially allocate space 
@@ -94,8 +94,12 @@ public class Singlearrayimplement3stacks {
        indexUsed--;
        return value;
     }
-    int peek(int stack) { return buffer[stackPointer[stack]].value; }
-    boolean isEmpty(int stackNum) { return stackPointer[stackNum] == -1; }    
+    int peek(int stack) { 
+    	return buffer[stackPointer[stack]].value;
+    }
+    boolean isEmpty(int stackNum) { 
+    	return stackPointer[stackNum] == -1;
+    }    
     
     }
 }

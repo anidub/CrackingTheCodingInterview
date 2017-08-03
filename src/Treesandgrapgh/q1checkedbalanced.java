@@ -171,8 +171,8 @@ public class q1checkedbalanced {
 			}
 			return true;
 		}
+		
 	}
 	public static void main(String[] args) {
 	}
-
 }

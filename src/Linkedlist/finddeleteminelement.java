@@ -61,12 +61,12 @@ public class finddeleteminelement {
 		
 		if(n.data == min.data){
 			head = head.next;
-		}else{
-		while(n.next != null){
-			if(n.next.data == min.data){
-				n.next = n.next.next;
-			}
-			n = n.next;
+		} else {
+			while(n.next != null) {
+				if (n.next.data == min.data) {
+					n.next = n.next.next;
+				}
+				n = n.next;
 			}
 		}
 		

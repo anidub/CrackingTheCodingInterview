@@ -42,7 +42,6 @@ public class Beginningcircularlinkedlist {
 			hare = hare.next;
 		}
 		System.out.println(hare.data);
-		return hare;
-		
+		return hare;		
 	}
 }

@@ -21,9 +21,7 @@ public class kthelementfromlast {
 		while(current != null){
 			current = current.next;
 			behind = behind.next;
-		}
-		
-		return behind.data;
-		
+		}		
+		return behind.data;		
 	}
 }

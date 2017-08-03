@@ -30,5 +30,4 @@ public class nodeclosesttoagivenvalue {
 	public static void main(String[] args) {
 		
 	}
-
 }
