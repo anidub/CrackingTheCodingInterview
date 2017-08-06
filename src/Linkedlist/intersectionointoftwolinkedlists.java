@@ -43,7 +43,7 @@ public class cloneSinglyLinkedList {
 		}
 	}
 
-	public static Node clone(Node head){
+/*	public static Node clone(Node head){
 		// Initialize two references, one with original list's head.
 
 		Node origCurr = head, cloneCurr = null;
@@ -74,6 +74,45 @@ public class cloneSinglyLinkedList {
 
 		//return the head reference of the clone list.
 		return copied;
+	}*/
+	
+	public static int findIntersectionPoint(Node n1, Node n2){
+		if(n1 == null && n2 == null) return -1;
+		if(n1 == null) return n2.data;
+		if(n2 == null) return n1.data;
+		
+		int len1 = getLen(n1);
+		int len2 = getLen(n2);
+		
+		int diff;
+		if(len1 > len2){
+			diff = len1 - len2;
+			return getintersection(diff, n1, n2);
+		}else{
+			diff = len2 - len1;
+			return getintersection(diff, n2, n1);
+		}
+	}
+	
+	public static int getintersection(int diff, Node n1, Node n2){
+		for(int i = 0; i < diff; i++){
+			n1 = n1.next;
+		}		
+		while(n1 != null && n2 != null){
+			if(n1.data == n2.data) return n1.data;
+			n1 = n1.next; n2 = n2.next;
+		}
+		return -1;
+	}
+	
+	public static int getLen(Node n1){
+		Node cur = n1;
+		int len = 0;
+		while(cur != null){
+			len++;
+			cur = cur.next;
+		}
+		return len;
 	}
 	
 	// Driver Class
