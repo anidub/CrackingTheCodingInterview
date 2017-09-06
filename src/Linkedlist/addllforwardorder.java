@@ -15,18 +15,20 @@ public class addllforwardorder {
 		Node newnode = new Node(0);
 		if(l1 > l2){
 			diff = l1 - l2;
-			while(diff > 0){
-			newnode.next = n2;
-			n2 = newnode;
-			diff--;
+			while (diff > 0) {
+				newnode.next = n2;
+				n2 = newnode;
+				diff--;
+				newnode = new Node(0);
 			}
 		}
 		if(l2 > l1){
 			diff = l2 - l1;
-			while(diff > 0){
-			newnode.next = n1;
-			n1 = newnode;
-			diff--;
+			while (diff > 0) {
+				newnode.next = n1;
+				n1 = newnode;
+				diff--;
+				newnode = new Node(0);
 			}
 		}
 		
@@ -43,7 +45,7 @@ public class addllforwardorder {
 		carry = 0;
 		if(a > 9){
 			carry = 1;
-			a = a/10;
+			a = a%10;
 		}
 		Node result = new Node(a);
 		if(newnode == null){
@@ -77,13 +79,11 @@ public class addllforwardorder {
 	public static void main(String[] args) {
 		Node n1 = new Node(1);
 		 n1.next = new Node(2);
+		 n1.next.next = new Node(3);
 		
 		Node n2 = new Node(9);
 		print(n1);
 		print(n2);
 		print(addforward(n1, n2));
-		
-
 	}
-
 }

@@ -78,11 +78,10 @@ public class Palindromelinkedlist {
 		}
 		
 		//recover original list
-		righthead  = reverse(righthead);
-		
+		righthead  = reverse(righthead);		
 		return true;
 	}
-	
+		
 	public static Node reverse(Node head){
 		Node previous = null;
 		Node current = head;

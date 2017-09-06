@@ -39,6 +39,7 @@ public class insertInSortedLinkedList {
 		}
 		return head;
 	}
+	
 	public static void display(Node head){
 		while(head != null){
 			System.out.print(head.data + " ");
