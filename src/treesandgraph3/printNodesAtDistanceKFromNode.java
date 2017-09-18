@@ -36,7 +36,7 @@ public class printNodesAtDistanceKFromNode {
 			printKDown(root, k);
 		}		
 		
-		int dLeft = printKDistanceNode(root.left, target, k);
+		int dLeft = printKDistanceNode(root.right, target, k);
 		   // Check if target node was found in left subtree
 		if(dLeft != -1){
 			  // If root is at distance k from target, print root.Note that dl is Distance of root's left child from target
@@ -58,7 +58,7 @@ public class printNodesAtDistanceKFromNode {
 				System.out.print(root.data);
 				System.out.println(" ");
 			}else{
-				printKDown(root.right, k - dRight - 2);
+				printKDown(root.left, k - dRight - 2);
 			}
 			return dRight + 1;
 		}
