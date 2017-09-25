@@ -72,7 +72,7 @@ public class flattenBinaryTree {
 		     cur = cur.right;  
 		   }  
 	}
-	 
+	 	 
 	public static void main(String[] args) {
 		Node treeNode = new Node(5);
 		Node treeNode1 = new Node(3);

@@ -34,5 +34,4 @@ which we use to calculate the new values of the nodes.
 		int left = changeValue(root.left, root.value + temp);
 		return left + temp + right;
 	}
-
 }

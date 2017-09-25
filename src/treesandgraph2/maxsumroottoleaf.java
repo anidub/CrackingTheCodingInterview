@@ -12,9 +12,7 @@ public  class maxsumroottoleaf {
 	 Node root;
 	 int max = new Maximum();
 	 Node target_leaf = null;
-    
-	
-	
+ 	
 	public  void getTargetLeaf(Node node, Maximum max_sum_ref, int curr_sum){
 		if (node == null) return;
 
@@ -31,8 +29,7 @@ public  class maxsumroottoleaf {
 			}
 		}
 
-		// If this is not a leaf node, then recur down
-		// to find the target_leaf
+		// If this is not a leaf node, then recur down to find the target_leaf
 		getTargetLeaf(node.left, max_sum_ref, curr_sum);
 		getTargetLeaf(node.right, max_sum_ref, curr_sum);
 	}

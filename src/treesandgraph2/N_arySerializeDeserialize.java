@@ -74,7 +74,7 @@ public class N_arySerializeDeserialize {
 			
 		}
 	}
-	
+		
 	 public static String serialize(Node root) {  
          StringBuilder result = new StringBuilder();  
          if (null != root) {  
@@ -121,8 +121,8 @@ public class N_arySerializeDeserialize {
               }  
          }  
          return result;  
-    }  
-
+    } 
+  
 		public boolean equals(Node compareTo) {
 			if (null == compareTo) {
 				return false;

@@ -3,18 +3,19 @@ package treesandgraph2;
 
 
 public class Node {
-	Node left,right;
-	int data;
+	public Node left;
+	public Node right;
+	public int data;
 	
 	public Node(){
-		left = null;
-		right = null;
+		this.left = null;
+		this.right = null;
 		data = 0;
 	}
 	
 	public Node(int n){
-		left = null;
-		right = null;
+		this.left = null;
+		this.right = null;
 		data = n;
 	}
 	

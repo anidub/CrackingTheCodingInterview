@@ -48,8 +48,6 @@ public class addllreverseorder {
 		n1.next = new Node(3);
 		print(n1);
 		print(n2);
-		print(add(n1,n2));
-		
+		print(add(n1,n2));		
 	}
-
 }

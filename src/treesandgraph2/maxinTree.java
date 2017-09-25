@@ -18,7 +18,7 @@ public class maxinTree {
 			max = node.data;
 		return max;
 	}
-	
+		
 	public static void findmMaxIteration(Node node){
 		if(node == null) return ;
 		Queue<Node> queue = new LinkedList<Node>();

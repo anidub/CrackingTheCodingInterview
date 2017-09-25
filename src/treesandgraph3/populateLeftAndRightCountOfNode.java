@@ -39,5 +39,4 @@ public class populateLeftAndRightCountOfNode {
 		else
 			root.rightCount = 0;
 	}
-
 }

@@ -3,7 +3,6 @@ package treesandgraph2;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 public class allpathsfromroottoleaf {
 //Time Complexity: O(nlog(n))
@@ -12,47 +11,29 @@ public class allpathsfromroottoleaf {
 	 //http://www.geeksforgeeks.org/given-a-binary-tree-print-all-root-to-leaf-paths/
 	 //https://www.interviewbit.com/problems/root-to-leaf-paths-with-sum/
 	 public static void printPaths(Node node) {
-	     //int path[] = new int[1000];
 		 ArrayList<Integer> path = new ArrayList<>();
-	// printPathsRecur(node, path, 0);
 		 printPathsRecur(node, path);
    }
 /* Recursive helper function -- given a node, and an array containing the path from the root node up to but not including this node, print out all the root-leaf paths.*/
-	// public static void printPathsRecur(Node node, int[] path, int pathLen) {
 	 public static void printPathsRecur(Node node, ArrayList<Integer> path) {
 	        if (node == null) {
 	            return;
-	        }
-	 
+	        }	 
 	        /* append this node to the path array */
-	       // path[pathLen] = node.data;
-	       // path[pathLen]=node.data;
 	        path.add(node.data);
-	        //pathLen++;
 	 
 	        /* it's a leaf, so print the path that led to here  */
 	        if (node.left == null && node.right == null) {
-	          //  printArray(path, pathLen);
 	            printArray(path);
 	        } else {
 	            /* otherwise try both subtrees */
-	           // printPathsRecur(node.left, path, pathLen);
-	           // printPathsRecur(node.right, path, pathLen);
 	            printPathsRecur(node.left, new ArrayList(path));
 	            printPathsRecur(node.right, new ArrayList(path));
 	        }
 	    }
 	 
 	    /* Utility function that prints out an array on a line. */
- // public static void printArray(int[] ints, int len) {
-	       // int i;
-	 // 		for (int i = 0; i < len; i++) {
-	  //          System.out.print(ints[i] + " ");
-	 //       }
-	  //      System.out.println("");
-	 //   }
   public static void printArray(ArrayList<Integer> path) {
-      // int i;
  		for (int i : path) {
            System.out.print(i + " ");
        }
@@ -63,11 +44,19 @@ public class allpathsfromroottoleaf {
 		n.left = new Node(2);
 		n.right = new Node(3);
 		n.left.left = new Node(4);
-		//printPaths(n);
-		int[] path = new int[1000];
-		// RoottoPathPrint(n);
+		printPaths(n);
 		 printAllPathToLeafNonRecursive(n);
-
+	}
+	
+	void printPaths(Node node, String str) {
+		if (node == null)	return;
+		if (node.left == null && node.right == null) {
+			System.out.print(str + " " + node.data);
+			System.out.println();
+			return;
+		}
+		printPaths(node.left, str + " " + node.data);
+		printPaths(node.right, str + " " + node.data);
 	}
 	
 	//works

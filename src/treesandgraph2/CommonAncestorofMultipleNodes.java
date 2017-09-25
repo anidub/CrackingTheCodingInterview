@@ -48,8 +48,7 @@ public class CommonAncestorofMultipleNodes {
 			if(!contains(n.right,key[j])) break;
 		}
 		if(j == key.length) return findCA(n.right,key);
-		return n;
-		
+		return n;		
 	}
 	
 	public static boolean contains(Node n, int k){

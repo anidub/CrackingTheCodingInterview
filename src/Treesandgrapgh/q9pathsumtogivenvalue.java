@@ -72,7 +72,29 @@ public class q9pathsumtogivenvalue {
         // Alternatively, clone path when passing it in recursive
         // calls, or use native array to hold path.
         path.removeLast();
-    }	
+    }
+	
+	public LinkedList<LinkedList<Node>> getAllPaths(Node root, int target){
+		LinkedList<LinkedList<Node>> result = new LinkedList<>();
+		getpaths(result, root, target, new LinkedList<Node>());
+		return result;
+	}
+	
+	public void getpaths(LinkedList<LinkedList<Node>> result, Node root, int target, LinkedList<Node> path){
+		if(root == null) return;
+		path.add(root);
+		LinkedList<Node> nodes = new LinkedList<>();
+		int sum = 0;
+		for(int i = path.size() - 1; i >= 0; i--){
+			Node n = path.get(i);
+			nodes.add(n);
+			sum += n.data;
+			if(sum == target) result.add((LinkedList<Node>) nodes.clone());			
+		}
+		getpaths(result, root.left, target, path);
+		getpaths(result, root.right, target, path);
+		path.removeLast();
+	}
 	public static void main(String[] args) {
 		TreeNode n1 = new TreeNode(1), 
 				n2 = new TreeNode(2), n3 = new TreeNode(3),

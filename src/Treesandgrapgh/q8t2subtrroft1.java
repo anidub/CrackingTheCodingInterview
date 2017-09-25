@@ -29,5 +29,4 @@ public static boolean matchtree(BSTNode t1, BSTNode t2){
 	public static void main(String[] args) {
 	
 	}
-
 }

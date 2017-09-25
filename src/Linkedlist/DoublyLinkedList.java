@@ -155,5 +155,4 @@ public class DoublyLinkedList {
 		dll.removeLast();
 		dll.iterateBackward();
 	}
-
 }

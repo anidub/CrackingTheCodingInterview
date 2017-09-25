@@ -36,6 +36,7 @@ public class printVerticalOrder {
 	        // tree constructed
 	        printVertical(root);
 	}
+	
 	public static  void printVertical(Node n){
 		Map<Integer, ArrayList<Integer>> hm = new TreeMap<Integer, ArrayList<Integer>> ();
 		int horizontalDistance = 0;

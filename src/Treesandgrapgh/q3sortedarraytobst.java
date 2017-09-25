@@ -45,7 +45,7 @@ public class q3sortedarraytobst {
 				node.right = sortarraytobst(array, mid + 1, end);
 				node.left = sortarraytobst(array, start, mid-1);
 				return node;			
-		}		
+		}	
 
 		public BNode arraybst(int[] array) {
 			return sortarraytobst(array, 0, array.length - 1);

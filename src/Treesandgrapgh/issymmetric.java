@@ -6,8 +6,8 @@ import java.util.Queue;
 public class issymmetric {
 	
 	public static class TreeNode{
-		int value;
-		TreeNode left; TreeNode right;
+		public int value;
+		public TreeNode left; public TreeNode right;
 		
 		public TreeNode(int value){
 			this.value = value;
@@ -64,7 +64,7 @@ public class issymmetric {
 		}
 		return result;
 	}
-	
+		
 	public static void main(String[] args) {
 		TreeNode n1 = new TreeNode(1), n2 = new TreeNode(2), n3 = new TreeNode(3), n4 = new TreeNode(4), n5 = new TreeNode(5); 
 		n1.left = n2;

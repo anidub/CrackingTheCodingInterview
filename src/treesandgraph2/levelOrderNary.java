@@ -1,5 +1,6 @@
 package treesandgraph2;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 //Print an n-ary tree with level. 
@@ -102,7 +103,7 @@ public class levelOrderNary {
 		System.out.println("Level " + level + ": " + builder.toString());
 		printNodeElements(nextLevelNodes, level + 1);
 	}
-		
+			
 	//binary	
 	/*public static void printLevelOrder(Node  root){
 		if(root == null) return;

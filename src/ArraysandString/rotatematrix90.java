@@ -60,7 +60,7 @@ public class rotatematrix90 {
 				//for +90
 				int t = matrix[i][j];
 				
-				matrix[i][j] = matrix[l-j-1][i];
+				matrix[i][j] = matrix[l-j-1][i]; // if +90 j will come with L
 				
 				matrix[l-j-1][i] = matrix[l-i-1][l-j-1];
 				
@@ -83,5 +83,4 @@ public class rotatematrix90 {
 				output [j][n-1-i] = input[i][j];
 		return output;
 		}*/
-
 }

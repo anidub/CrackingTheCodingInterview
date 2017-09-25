@@ -31,6 +31,6 @@ public class StringCompress {
 			}		
 			sb.append(count);
 			return sb.toString().length() >= s.length() ? s : sb.toString();
-	}
+	}	
 }
 

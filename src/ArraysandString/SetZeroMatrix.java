@@ -1,7 +1,7 @@
 package ArraysandString;
 
 public class SetZeroMatrix {
-/*
+
 	static int M = 3;
 	static int N = 3;
 	public static void main(String[] args) {
@@ -47,15 +47,25 @@ public class SetZeroMatrix {
 				}
 			}
 		}
+		
+		for(i = 0; i < M; i++){
+			for(j = 0; j < N; j++){
+				if(row[i] == true & col[j] == true){
+					for(p = 0; p < M; p++){
+						matrix[p][j] = 0;
+					}
+				}
+			}
+		}
 	}
-*/
+
 	//set M*N matrix
-	static int M=4;
+/*	static int M=4;
 	static int N=5;
 	
-	/*
+	
 	 * display the matrix
-	 */
+	 
 	void display_matrix(int[][] matrix) {
 		int i,j;
 		for(i=0;i<M;i++) {
@@ -66,9 +76,9 @@ public class SetZeroMatrix {
 		}
 	}
 	
-	/*
+	
 	 * set the matrix. when an element in an MxN matrix is 0, its entire row and column are set to 0
-	 */
+	 
 	void set_matrix(int[][] matrix) {
 		boolean[] row = new boolean[M];
 		boolean[] col = new boolean[N];
@@ -114,5 +124,5 @@ public class SetZeroMatrix {
 		M.set_matrix(matrix);
 		System.out.println("After set");
 		M.display_matrix(matrix);
-	}
+	}*/
 }

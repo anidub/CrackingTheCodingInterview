@@ -30,8 +30,8 @@ public Node deSerialize(ArrayList<Integer> array){
 	root.right = deSerialize(array);
 	return root;
 }
-	
-	public static void main(String[] args) {
+
+public static void main(String[] args) {
 		
-	}
+}
 }

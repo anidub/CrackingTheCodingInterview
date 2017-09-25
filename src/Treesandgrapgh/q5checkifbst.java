@@ -1,5 +1,7 @@
 package Treesandgrapgh;
 
+import java.util.LinkedList;
+
 public class q5checkifbst {
 	
 	

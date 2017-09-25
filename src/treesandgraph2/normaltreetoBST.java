@@ -27,8 +27,8 @@ public class normaltreetoBST {
 		n.left = treetoBSTutil(store, start,mid-1);
 		n.right = treetoBSTutil(store,mid+1,end);
 		return n;
-			
 	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

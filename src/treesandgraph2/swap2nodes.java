@@ -54,6 +54,7 @@ public class swap2nodes {
 			/* Assume appropriate constructors and insert fns exist*/
 	        }
 	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 	}

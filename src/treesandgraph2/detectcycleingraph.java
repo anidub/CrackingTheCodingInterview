@@ -43,8 +43,7 @@ public class detectcycleingraph {
 	public static boolean isCyclicUtil(graph graph,int v, boolean[] visited, Set<Integer> recStack){
 		System.out.println("v : " + v + " Set : " + recStack);
 		
-		//if we have not visited the vertex v yet 
-				//then visit the vertex v and all its adjacent vertices
+		//if we have not visited the vertex v yet then visit the vertex v and all its adjacent vertices
 		if(!visited[v]){
 			//mark the vertex v to be visited
 			visited[v] = true;
@@ -68,7 +67,6 @@ public class detectcycleingraph {
 		//remove the node from the recursion stack
 			recStack.remove(v);
 			return false;
-		
 	}
 
 //	Time Complexity: The program does a simple DFS Traversal of graph and graph is represented using adjacency list. So the time complexity is O(V+E)
@@ -91,8 +89,7 @@ public class detectcycleingraph {
 			i = graph.adj[v].listIterator();
 			while(i.hasNext()){
 				int n = i.next();
-				// If an adjacent is not visited, then recur for that
-	            // adjacent
+				// If an adjacent is not visited, then recur for that adjacent
 				if(!visited[n]){
 					if(isCyclicUndirectedUtil(graph,  n,visited,v))
 						return true;

@@ -107,4 +107,5 @@ public class q6nextsucessornode {
 		}
 		return current;
 	}
+	
 }

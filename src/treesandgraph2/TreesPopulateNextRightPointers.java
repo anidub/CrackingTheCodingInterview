@@ -146,4 +146,3 @@ public class TreesPopulateNextRightPointers {
 	   Also the average case is O(n*log(n)).
 	   It's fast enough, previous post provided a O(n) way but need O(n) extra space.	   
 */}
-

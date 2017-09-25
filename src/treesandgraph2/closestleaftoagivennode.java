@@ -79,6 +79,5 @@ public class closestleaftoagivennode {
 	    Node x = root.right;
 	    System.out.println("Distance : " + minimumDistance(root, x));	 
 	    System.out.println("Leaf :" + res);	
-	}
-	
+	}	
 }

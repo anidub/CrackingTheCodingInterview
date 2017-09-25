@@ -28,7 +28,7 @@ public static void populateInorderSucc(Node root){
 
         // Finally, set the next pointer in left subtree
 		populateInorderSucc(root.left);
-	}
+	}	
 }
 	public static void main(String[] args) {
 		Node root = new Node(10);

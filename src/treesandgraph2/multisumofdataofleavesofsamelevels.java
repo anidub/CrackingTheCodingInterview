@@ -42,8 +42,7 @@ public class multisumofdataofleavesofsamelevels {
 				if(node.right != null){
 					q.add(node.right);
 				}
-				nodeCount--;
-				
+				nodeCount--;				
 			}	
 			if(leafFound){
 				mul *= levelSum;
@@ -51,4 +50,5 @@ public class multisumofdataofleavesofsamelevels {
 		}
 		return mul;
 	}
+	
 }
