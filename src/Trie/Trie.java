@@ -1,3 +1,4 @@
+
 package Trie;
 
 import java.util.HashMap;
@@ -144,10 +145,11 @@ public void delete(String word){
 	}
 	public static void main(String[] args){
 		Trie trie = new Trie();
-		trie.insert("Hello");
-		System.out.println(trie.search("Hello"));
-		trie.delete("Hello");
-		System.out.println(trie.search("Hello"));
-		System.out.println(trie.search("Anish"));
+		trie.insert("abc");
+		System.out.println(trie.search("abcgl"));
+		trie.delete("abcgl");
+		trie.delete("a");
+		System.out.println(trie.search("abc"));
+		System.out.println(trie.search("abcgl"));
 	}
 }

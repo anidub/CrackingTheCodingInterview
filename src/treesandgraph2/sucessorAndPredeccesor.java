@@ -32,7 +32,7 @@ public class sucessorAndPredeccesor {
 		if(root.data == key){
 			if(root.left != null){
 				Node temp = root.left;
-				while(temp != null) temp = temp.right;
+				while(temp.right != null) temp = temp.right;
 				pre = temp;
 			}
 			if(root.right != null){

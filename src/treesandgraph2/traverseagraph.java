@@ -20,7 +20,7 @@ public class traverseagraph {
 		adj[u].add(w);
 	}
 	
-	public void traversegraph(int v){
+	public void traversegraphDFS(int v){
 		boolean[] visited = new boolean[v];
 		dfsutil(v,visited);
 	}
@@ -50,6 +50,6 @@ public class traverseagraph {
         System.out.println("Following is Depth First Traversal "+
                            "(starting from vertex 2)");
  
-        g.traversegraph(2);
+        g.traversegraphDFS(2);
     }
 }

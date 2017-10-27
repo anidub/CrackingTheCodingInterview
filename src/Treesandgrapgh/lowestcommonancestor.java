@@ -176,6 +176,7 @@ public class lowestcommonancestor {
 			int diff = d2 - d1;
 			while(diff != 0){
 				n1 = n1.parent;
+				diff--;
 			}
 		}
 		while(n1 != null || n2 != null){

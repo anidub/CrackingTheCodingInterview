@@ -39,5 +39,29 @@ public class ReverseString {
 	    System.out.println("Reverse word string:"+buffer.toString());
 	*/
 	}
+	//https://www.youtube.com/watch?v=Q2S7CDuBTOc
+	//without extra space
+	public static String rev(char[] s){
+		int i = 0;
+		String result;
+		for(int j = 0; j < s.length; i++){
+			if(s[j] == ' '){
+				reverse(s,i, j);
+				i = j+1;
+			}
+		}
+	    reverse(s, i, s.length-1);
+	    
+	    reverse(s, 0, s.length-1);
+	}
+	
+	public static void reverse(char[] c, int i, int j){
+		while( i < j){
+			char temp = c[j];
+			c[j] = c[i];
+			c[i] = temp;
+			i++;j--;
+		}
+	}
 
 }

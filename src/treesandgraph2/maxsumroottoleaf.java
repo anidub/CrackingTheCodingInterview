@@ -4,20 +4,20 @@ package treesandgraph2;
 //http://www.geeksforgeeks.org/find-the-maximum-sum-path-in-a-binary-tree/
 //Time Complexity: Time complexity of the above solution is O(n) as it involves tree traversal two times.
 //Given a binary tree, find the maximum path sum. The path may start and end at any node in the tree.
-class Maximum{
-	int max_no = Integer.MIN_VALUE;
-}
-public  class maxsumroottoleaf {
+
+public class maxsumroottoleaf {
+	static class Maximum{
+		int max_no = Integer.MIN_VALUE;
+	}
 	// A wrapper class is used so that max_no  can be updated among function calls.
 	 Node root;
-	 int max = new Maximum();
+	 int max = new Maximum().max_no;
 	 Node target_leaf = null;
  	
 	public  void getTargetLeaf(Node node, Maximum max_sum_ref, int curr_sum){
 		if (node == null) return;
 
-		// Update current sum to hold sum of nodes on
-		// path from root to this node
+		// Update current sum to hold sum of nodes on path from root to this node
 		curr_sum = curr_sum + node.data;
 		int a = max_sum_ref.max_no;
 

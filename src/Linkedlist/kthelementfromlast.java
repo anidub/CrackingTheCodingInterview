@@ -12,16 +12,21 @@ public class kthelementfromlast {
 		System.out.println(kthelementfromlast(n,number));
 	}
 
-	public static int kthelementfromlast (Node head,int n){
+	public static int kthelementfromlast(Node head, int n) {
+		if (head == null || n < 1) 	return -1;
 		Node current = head;
-		for(int i = 0; i < n; i++){
+		Node nBehindCurrent = head;
+
+		for (int i = 0; i < n - 1; i++) {
+			current = current.next;
+			if (current == null) {
+				return -1;
+			}
+		}
+		while (current.next != null) {
+			nBehindCurrent = nBehindCurrent.next;
 			current = current.next;
 		}
-		Node behind = head;
-		while(current != null){
-			current = current.next;
-			behind = behind.next;
-		}		
-		return behind.data;		
+		return nBehindCurrent.data;
 	}
 }

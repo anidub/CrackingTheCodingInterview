@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class normaltreetoBST {
 	ArrayList<Node> store = new ArrayList<Node>();
 	public Node treetoBST(Node root){
-		ArrayList<Node> store = new ArrayList<Node>();
 		storeNode(root);
 		int size = store.size();
 		Node n = treetoBSTutil(store,0,size-1);
