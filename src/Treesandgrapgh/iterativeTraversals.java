@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
+import TreeGeeks.TreeNode;
+
 public class iterativeTraversals {
 	
 	private Node root;
@@ -23,6 +25,7 @@ public class iterativeTraversals {
 	         level.add(node.right);
 	     }
 	}
+	
 
 	//preorder iterative
 	/** Iteratively traverses the binary tree in pre-order 
@@ -57,10 +60,11 @@ public class iterativeTraversals {
 	go to step 2
 	If stack is empty and currentNode is also null then we are done with it*/
 	/** Iteratively traverses the binary tree in in-order */
+	@SuppressWarnings("unused")
 	public void inorder() {
 		Node node = root;
 		Stack<Node> stack = new Stack<Node>();
-		while (!stack.isEmpty() || node != null) {
+		while (!stack.isEmpty() && node != null) {
 			if (node != null) {
 				stack.push(node);
 				node = node.left;
@@ -166,4 +170,63 @@ public class iterativeTraversals {
 	            System.out.print(temp.data + " ");
 	        }
 	    }
+	/*
+	 * random node
+	 */
+	public static void printInorderRec(TreeNode root){
+		if(root == null) return;
+		Stack<TreeNode> stack = new Stack<TreeNode>();
+		while(stack.isEmpty() && root != null){
+			if(root.left != null){
+				stack.push(root.left);
+			}else{
+				root = stack.pop();
+				System.out.print("[ " + root.data);
+				if(root.random != null){
+					System.out.print(" " + root.random.data + " ], ");
+				}else{
+					System.out.print(" Null], ");
+				}
+				root = root.right;
+			}
+		}
+		printInorder(root.left);
+		System.out.print("[ " + root.data);
+		if(root.random != null){
+			System.out.print(" " + root.random.data + " ], ");
+		}else{
+			System.out.print(" Null], ");
+		}
+		System.out.println();
+		printInorder(root.right);
+	}
+	
+	/*
+	 * https://www.geeksforgeeks.org/reverse-level-order-traversal/
+	 * Print reverse Level Order
+	 * There are 2 Methods : 1 -> use Queue like above and store elements in stack. print stack
+	 * 2-> find height and print Time complexity : O(n2)
+	 */
+	public static void printReverseLevelOrder(Node root){
+		int height = getHeight(root);
+		for(int i = height; i >= 1; i--){
+			printReverseLevel(root, height);
+		}
+	}
+	
+	public static void printReverseLevel(Node root, int level){
+		if(root == null) return;
+		if(level == 1){
+			System.out.println(root.data);
+		}else if(level > 1){
+			printReverseLevel(root.left, level-1);
+			printReverseLevel(root.right, level+1);
+		}
+	}
+	public static int getHeight(Node root){
+		if(root == null) return 0;
+		int left = getHeight(root.right);
+		int right = getHeight(root.right);
+		return Math.max(left, right) + 1;
+	}
 }

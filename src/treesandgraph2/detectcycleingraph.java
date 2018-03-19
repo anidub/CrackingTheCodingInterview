@@ -71,6 +71,7 @@ public class detectcycleingraph {
 
 //	Time Complexity: The program does a simple DFS Traversal of graph and graph is represented using adjacency list. So the time complexity is O(V+E)
 //http://www.geeksforgeeks.org/detect-cycle-undirected-graph/	
+	//USE THIS TO CHECK IF UNDIECTED GRAPH IS TREE
 	public boolean isCyclicUndirected(graph graph){
 		int size = graph.adj.length;
 		boolean[] visited = new boolean[size];

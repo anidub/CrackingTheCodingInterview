@@ -1,7 +1,6 @@
 package StacksandQueues;
 
 import java.util.LinkedList;
-import java.util.Queue;
 
 public class implementStackusingQueues {	
 		LinkedList<Integer> queue1 = new LinkedList<Integer>();

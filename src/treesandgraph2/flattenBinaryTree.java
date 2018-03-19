@@ -57,20 +57,20 @@ public class flattenBinaryTree {
 		 }  
 
 	 //studied -->	 
-	 public void flattenIterative(Node root) {  
-		   Node cur = root;  
-		   while (cur != null) {  
-		     if (cur.left != null) {  
-		       if (cur.right != null) { // if we need to prune a right subtree
-		         Node next = cur.left;  
-		         while (next.right != null) next = next.right;  
-		         next.right = cur.right;  
-		       }
-		       cur.right = cur.left;  
-		       cur.left = null;  
-		     }  
-		     cur = cur.right;  
-		   }  
+	public void flattenIterative(Node root) {
+		Node cur = root;
+		while (cur != null) {
+			if (cur.left != null) {
+				if (cur.right != null) { // if we need to prune a right subtree
+					Node next = cur.left;
+					while (next.right != null)	next = next.right;
+					next.right = cur.right;
+				}
+				cur.right = cur.left;
+				cur.left = null;
+			}
+			cur = cur.right;
+		}
 	}
 	 	 
 	public static void main(String[] args) {

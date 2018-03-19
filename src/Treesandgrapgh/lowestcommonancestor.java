@@ -1,7 +1,5 @@
 package Treesandgrapgh;
 
-import Trie.readFile;
-
 public class lowestcommonancestor {
 //time complexity of the above solution is O(n)
 	static class Node {

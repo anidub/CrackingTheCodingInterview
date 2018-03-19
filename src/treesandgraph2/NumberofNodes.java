@@ -1,6 +1,7 @@
 package treesandgraph2;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class NumberofNodes {
 
@@ -30,8 +31,32 @@ public class NumberofNodes {
 		}
 		
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		Node root = new Node(1);
+		root.left = new Node(2);
+		root.right = new Node(3);
+		root.right.right = new Node(4);
+		System.out.println(getCount(root.right));
 
 	}
+	
+	
+	public static Integer getCount(Node root){
+		  if(root == null)
+		    return 0;
+		  int count = 0;
+		  Queue<Node> queue = new LinkedList<Node>();
+		  queue.add(root);
+		  while(!queue.isEmpty()){
+		    Node node = queue.poll();
+		    count++;
+		    if(node.left != null){
+		      queue.add(node.left);
+		    }
+		    if(node.right != null){
+		      queue.add(node.right);
+		    }
+		  }
+		  return count;
+		}
 
 }

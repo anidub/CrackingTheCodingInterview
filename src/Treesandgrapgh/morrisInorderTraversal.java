@@ -3,7 +3,10 @@ public class morrisInorderTraversal {
 	/* Function to traverse binary tree without recursion and without stack */
 /*	http://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion-and-without-stack/
 		Using Morris Traversal, we can traverse the tree without using stack and recursion using O(1) of space.
-Time Complexity : how many times a tree node will be traversed. As it is constant(3 times for a binary tree).O(n).*/
+Time Complexity : how many times a tree node will be traversed. As it is constant(3 times for a binary tree).O(n).
+
+*Limitations: Tree gets modified !!
+*/
 	public static void MorrisTraversal(Node root) {
 		Node current, pre;
 		if (root == null)
@@ -35,6 +38,31 @@ Time Complexity : how many times a tree node will be traversed. As it is constan
 			} /* End of if condition current->left == NULL */
 		} /* End of while */
 	}
+	/*
+	 * Morris traversal for Pre Order traversal
+	 */
+	public static void MorrisPREORDERTraversal(Node root){
+		Node current = root;
+		while(current != null){
+			if(current.left == null){
+				System.out.print(current.data+ " ");
+				current = current.right;
+			}else{
+				Node temp = current.left;
+				while(temp.right != null && temp.right != current){
+					temp = temp.right;
+				}
+				if(temp.right == current){
+					temp.right = null;
+					current = current.right;
+				}else{
+					System.out.print(current.data + " ");
+					temp.right = current;
+					current = current.left;
+				}
+			}
+		}
+	}
 	
 		public static void main(String[] args){
 			Node root = new Node(1);
@@ -42,6 +70,8 @@ Time Complexity : how many times a tree node will be traversed. As it is constan
 			root.left.left = new Node(4);
 			root.left.right = new Node(5);
 			root.right = new Node(3);
-			MorrisTraversal(root);
+			//MorrisTraversal(root);
+			System.out.println("-----PREORDER--------");
+			MorrisPREORDERTraversal(root);
 		}
 }
