@@ -1,8 +1,5 @@
 package Treesandgrapgh;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class bsttodoublylinkedlist {
 	
 	//this program is binary tree to doubly linkedlist

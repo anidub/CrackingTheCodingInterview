@@ -26,7 +26,6 @@ public class heightdiff {
 		a.left.right = new Node(4);
 		a.left.left.left = new Node(6);		
 		System.out.println(GetHeightDifference(a, a.left,a.left.left));
-
 	}
 
 	public static int GetHeightDifference(Node root, Node node1, Node node2) {

@@ -86,7 +86,5 @@ public class RankOfANumber {
         System.out.println(rankOfNode.getRank(5));
         System.out.println(rankOfNode.getRank(2));
         System.out.println(rankOfNode.getRank(24));
-
 	}
-
 }

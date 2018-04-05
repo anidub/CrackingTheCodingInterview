@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 public class traverseagraph {
 
-	private int v;
+	private int v;//total vertices
 	LinkedList<Integer> adj[];
 	
 	public traverseagraph(int V) {
