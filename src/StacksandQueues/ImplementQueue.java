@@ -135,8 +135,7 @@ public class ImplementQueue {
 		}else if(front == 0 && rear == 0){
 			front = -1;
 	    	rear = -1;
-	}	
-		else if(rear + 1 <= size)
+		}else if(rear + 1 <= size)
 			front++;
 	}
 	
